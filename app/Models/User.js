@@ -1,7 +1,6 @@
 'use strict'
 
 const Model = use('Model')
-
 const Hash = use('Hash')
 
 class User extends Model {
@@ -13,6 +12,13 @@ class User extends Model {
         userInstance.password = await Hash.make(userInstance.password)
       }
     })
+  }
+
+  static get traits () {
+    return [
+      '@provider:Adonis/Acl/HasRole',
+      '@provider:Adonis/Acl/HasPermission'
+    ]
   }
 
   tokens () {
@@ -37,6 +43,10 @@ class User extends Model {
 
   address () {
     return this.hasOne('App/Models/Address')
+  }
+
+  avatar () {
+    return this.hasOne('App/Models/File')
   }
 }
 

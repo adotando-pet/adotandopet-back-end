@@ -14,9 +14,9 @@ class PhoneSchema extends Schema {
         .inTable('users')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
-      table.integer('number').notNullable()
+      table.string('number').notNullable()
       table.enu('type', ['residential', 'work', 'personal']).notNullable()
-      table.boolean('haveWhatsapp')
+      table.boolean('haveWhatsapp').notNullable()
       table.timestamps()
     })
   }

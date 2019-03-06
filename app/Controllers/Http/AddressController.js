@@ -1,92 +1,72 @@
 'use strict'
 
-/** @typedef {import('@adonisjs/framework/src/Request')} Request */
-/** @typedef {import('@adonisjs/framework/src/Response')} Response */
-/** @typedef {import('@adonisjs/framework/src/View')} View */
+const Address = use('App/Models/Address')
 
-/**
- * Resourceful controller for interacting with addresses
- */
 class AddressController {
-  /**
-   * Show a list of all addresses.
-   * GET addresses
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async index ({ request, response, view }) {
+  async index () {
+    const address = await Address.query()
+      .with('user')
+      .fetch()
+
+    return address
   }
 
-  /**
-   * Render a form to be used for creating a new address.
-   * GET addresses/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
+  async store ({ request, response, auth }) {
+    const data = request.only([
+      'zip',
+      'country',
+      'state',
+      'city',
+      'street',
+      'number',
+      'district',
+      'complement'
+    ])
+
+    const user = auth.user.id
+
+    const address = await Address.create({ user_id: user, ...data })
+
+    await address.load('user')
+
+    return address
   }
 
-  /**
-   * Create/save a new address.
-   * POST addresses
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async store ({ request, response }) {
+  async show ({ params }) {
+    const address = await Address.findOrFail(params.id)
+
+    await address.load('user')
+
+    return address
   }
 
-  /**
-   * Display a single address.
-   * GET addresses/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async show ({ params, request, response, view }) {
+  async update ({ params, request }) {
+    const data = request.only([
+      'zip',
+      'country',
+      'state',
+      'city',
+      'street',
+      'number',
+      'district',
+      'complement'
+    ])
+
+    const address = await Address.findOrFail(params.id)
+
+    await address.merge(data)
+
+    await address.save()
+
+    await address.load('user')
+
+    return address
   }
 
-  /**
-   * Render a form to update an existing address.
-   * GET addresses/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
-  }
+  async destroy ({ params }) {
+    const address = await Address.findOrFail(params.id)
 
-  /**
-   * Update address details.
-   * PUT or PATCH addresses/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async update ({ params, request, response }) {
-  }
-
-  /**
-   * Delete a address with id.
-   * DELETE addresses/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async destroy ({ params, request, response }) {
+    await address.delete()
   }
 }
 

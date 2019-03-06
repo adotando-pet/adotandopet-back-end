@@ -1,4 +1,4 @@
-"use strict";
+'use strict'
 
 module.exports = {
   /*
@@ -29,7 +29,7 @@ module.exports = {
   | Array - An array of allowed methods
   |
   */
-  methods: ["GET", "PUT", "PATCH", "POST", "DELETE"],
+  methods: ['GET', 'PUT', 'POST', 'DELETE'],
 
   /*
   |--------------------------------------------------------------------------
@@ -84,4 +84,4 @@ module.exports = {
   |
   */
   maxAge: 90
-};
+}

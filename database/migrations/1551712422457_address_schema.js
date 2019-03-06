@@ -21,7 +21,8 @@ class AddressSchema extends Schema {
       table.string('city').notNullable()
       table.string('street').notNullable()
       table.integer('number').notNullable()
-      table.text('complement').notNullable()
+      table.string('district').notNullable()
+      table.text('complement')
       table.timestamps()
     })
   }

@@ -6,6 +6,14 @@ class UserSchema extends Schema {
   up () {
     this.create('users', table => {
       table.increments()
+      table
+        .integer('avatar_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('files')
+        .onUpdate('CASCADE')
+        .onDelete('SET NULL')
       table.string('name').notNullable()
       table
         .string('email')
@@ -14,7 +22,8 @@ class UserSchema extends Schema {
       table.string('password').notNullable()
       table.enu('gender', ['male', 'female', 'others']).notNullable()
       table.integer('age')
-      table.string('avatar_url')
+      table.string('token')
+      table.timestamp('token_created_at')
       table.timestamps()
     })
   }
