@@ -7,9 +7,8 @@ class UserSchema extends Schema {
     this.create('users', table => {
       table.increments()
       table
-        .integer('avatar_id')
+        .integer('file_id')
         .unsigned()
-        .notNullable()
         .references('id')
         .inTable('files')
         .onUpdate('CASCADE')

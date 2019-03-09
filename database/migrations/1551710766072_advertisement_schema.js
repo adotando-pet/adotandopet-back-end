@@ -30,7 +30,7 @@ class AdvertisementSchema extends Schema {
       table.boolean('isCastrated').notNullable()
       table.enu('size', ['small', 'medium', 'large']).notNullable()
       table.boolean('isDisabled').notNullable()
-      table.text('description').notNullable()
+      table.text('description')
       table.timestamps()
     })
   }

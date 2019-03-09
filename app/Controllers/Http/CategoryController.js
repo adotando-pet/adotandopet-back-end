@@ -12,7 +12,7 @@ class CategoryController {
   }
 
   async store ({ request }) {
-    const data = request.only(['title', 'slug', 'description'])
+    const data = request.only(['title', 'description'])
 
     const category = await Category.create(data)
 
@@ -28,7 +28,7 @@ class CategoryController {
   }
 
   async update ({ params, request }) {
-    const data = request.all()
+    const data = request.only(['title', 'description'])
 
     const category = await Category.findOrFail(params.id)
 

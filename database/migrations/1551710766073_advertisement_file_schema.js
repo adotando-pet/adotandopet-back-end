@@ -2,18 +2,10 @@
 
 const Schema = use('Schema')
 
-class AdoptionSchema extends Schema {
+class AdvertisementFileSchema extends Schema {
   up () {
-    this.create('adoptions', table => {
+    this.create('advertisement_file', table => {
       table.increments()
-      table
-        .integer('user_id')
-        .unsigned()
-        .notNullable()
-        .references('id')
-        .inTable('users')
-        .onUpdate('CASCADE')
-        .onDelete('CASCADE')
       table
         .integer('advertisement_id')
         .unsigned()
@@ -22,14 +14,22 @@ class AdoptionSchema extends Schema {
         .inTable('advertisements')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
-      table.enu('status', ['pending', 'approved', 'reproved']).notNullable()
+      table
+        .integer('file_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('files')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
+      table.boolean('featured').notNullable()
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('adoptions')
+    this.drop('advertisement_file')
   }
 }
 
-module.exports = AdoptionSchema
+module.exports = AdvertisementFileSchema

@@ -12,7 +12,7 @@ class Advertisement extends Model {
   }
 
   pictures () {
-    return this.hasMany('App/Models/AdvertisementPicture')
+    return this.hasMany('App/Models/AdvertisementFile')
   }
 
   comments () {

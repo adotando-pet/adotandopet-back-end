@@ -12,6 +12,7 @@ class UserController {
       .with('address')
       .with('roles')
       .with('permissions')
+      .with('avatar')
       .fetch()
 
     return user
@@ -26,6 +27,7 @@ class UserController {
       'comments',
       'phones',
       'address',
+      'avatar',
       'roles',
       'permissions'
     ])
@@ -40,7 +42,7 @@ class UserController {
       'password',
       'gender',
       'age',
-      'avatar_url',
+      'file_id',
       'permissions',
       'roles'
     ])
@@ -61,6 +63,7 @@ class UserController {
       'comments',
       'phones',
       'address',
+      'avatar',
       'roles',
       'permissions'
     ])
@@ -75,7 +78,7 @@ class UserController {
       'password',
       'gender',
       'age',
-      'avatar_url',
+      'file_id',
       'permissions',
       'roles'
     ])
@@ -100,6 +103,7 @@ class UserController {
       'comments',
       'phones',
       'address',
+      'avatar',
       'roles',
       'permissions'
     ])

@@ -46,7 +46,7 @@ class User extends Model {
   }
 
   avatar () {
-    return this.hasOne('App/Models/File')
+    return this.belongsTo('App/Models/File')
   }
 }
 

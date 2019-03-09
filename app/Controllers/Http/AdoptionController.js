@@ -1,92 +1,58 @@
 'use strict'
 
-/** @typedef {import('@adonisjs/framework/src/Request')} Request */
-/** @typedef {import('@adonisjs/framework/src/Response')} Response */
-/** @typedef {import('@adonisjs/framework/src/View')} View */
+const Adoption = use('App/Models/Adoption')
 
-/**
- * Resourceful controller for interacting with adoptions
- */
 class AdoptionController {
-  /**
-   * Show a list of all adoptions.
-   * GET adoptions
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async index ({ request, response, view }) {
+  async index () {
+    const adoption = await Adoption.query()
+      .with('user')
+      .with('advertisement')
+      .fetch()
+
+    return adoption
   }
 
-  /**
-   * Render a form to be used for creating a new adoption.
-   * GET adoptions/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
+  async store ({ params, auth }) {
+    const user = auth.user.id
+    const advertisement = params.advertisement_id
+
+    const adoption = await Adoption.create({
+      user_id: user,
+      advertisement_id: advertisement,
+      status: 'pending'
+    })
+
+    await adoption.loadMany(['user', 'advertisement'])
+
+    return adoption
   }
 
-  /**
-   * Create/save a new adoption.
-   * POST adoptions
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async store ({ request, response }) {
+  async show ({ params }) {
+    const adoption = await Adoption.findOrFail(params.id)
+
+    await adoption.loadMany(['user', 'advertisement'])
+
+    return adoption
   }
 
-  /**
-   * Display a single adoption.
-   * GET adoptions/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async show ({ params, request, response, view }) {
+  async update ({ params, request }) {
+    const data = request.only(['status'])
+
+    const adoption = await Adoption.findOrFail(params.id)
+
+    await adoption.merge(data)
+
+    await adoption.save()
+
+    await adoption.loadMany(['user', 'advertisement'])
+
+    return adoption
   }
 
-  /**
-   * Render a form to update an existing adoption.
-   * GET adoptions/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
-  }
+  async destroy ({ params }) {
+    const adoption = await Adoption.findOrFail(params.id)
 
-  /**
-   * Update adoption details.
-   * PUT or PATCH adoptions/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async update ({ params, request, response }) {
-  }
-
-  /**
-   * Delete a adoption with id.
-   * DELETE adoptions/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async destroy ({ params, request, response }) {
+    await adoption.delete()
   }
 }
 

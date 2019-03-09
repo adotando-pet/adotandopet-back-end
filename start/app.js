@@ -19,7 +19,11 @@ const providers = [
   '@adonisjs/mail/providers/MailProvider',
   '@adonisjs/framework/providers/ViewProvider',
   '@adonisjs/validator/providers/ValidatorProvider',
-  'adonis-acl/providers/AclProvider'
+  'adonis-acl/providers/AclProvider',
+  '@adonisjs/lucid-slugify/providers/SlugifyProvider',
+  '@adonisjs/redis/providers/RedisProvider',
+  'adonis-kue/providers/KueProvider',
+  '@adonisjs/drive/providers/DriveProvider'
 ]
 
 /*
@@ -33,7 +37,8 @@ const providers = [
 */
 const aceProviders = [
   '@adonisjs/lucid/providers/MigrationsProvider',
-  'adonis-acl/providers/CommandsProvider'
+  'adonis-acl/providers/CommandsProvider',
+  'adonis-kue/providers/CommandsProvider'
 ]
 
 /*
@@ -60,4 +65,14 @@ const aliases = { Role: 'Adonis/Acl/Role', Permission: 'Adonis/Acl/Permission' }
 */
 const commands = []
 
-module.exports = { providers, aceProviders, aliases, commands }
+/*
+|--------------------------------------------------------------------------
+| Jobs
+|--------------------------------------------------------------------------
+|
+| Here you store ace jobs for your package
+|
+*/
+const jobs = ['App/Jobs/ForgotPasswordMail']
+
+module.exports = { providers, aceProviders, aliases, commands, jobs }

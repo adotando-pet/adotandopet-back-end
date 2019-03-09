@@ -3,31 +3,26 @@
 const crypto = require('crypto')
 const moment = require('moment')
 const User = use('App/Models/User')
-const Mail = use('Mail')
+const Kue = use('Kue')
+const Job = use('App/Jobs/ForgotPasswordMail')
 
 class ForgotPasswordController {
   async store ({ request, response }) {
     try {
-      const email = request.input('email')
-      const user = await User.findByOrFail('email', email)
+      const data = request.only(['email', 'redirect_url'])
+      const user = await User.findByOrFail('email', data.email)
 
       user.token = crypto.randomBytes(10).toString('hex')
       user.token_created_at = new Date()
 
       await user.save()
 
-      await Mail.send(
-        ['emails.forgot_password'],
+      Kue.dispatch(
+        Job.key,
+        { email: data.email, user, redirectUrl: data.redirect_url },
         {
-          email,
-          token: user.token,
-          link: `${request.input('redirect_url')}?token=${user.token}`
-        },
-        message => {
-          message
-            .to(user.email)
-            .from('claudio@adotandopet.com', 'Claudio | Adotando Pet')
-            .subject('Recuperação de Senha')
+          attempts: 3,
+          priority: 'high'
         }
       )
     } catch (err) {

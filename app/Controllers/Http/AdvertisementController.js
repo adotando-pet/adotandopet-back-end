@@ -1,92 +1,88 @@
 'use strict'
 
-/** @typedef {import('@adonisjs/framework/src/Request')} Request */
-/** @typedef {import('@adonisjs/framework/src/Response')} Response */
-/** @typedef {import('@adonisjs/framework/src/View')} View */
+const Advertisement = use('App/Models/Advertisement')
 
-/**
- * Resourceful controller for interacting with advertisements
- */
 class AdvertisementController {
-  /**
-   * Show a list of all advertisements.
-   * GET advertisements
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async index ({ request, response, view }) {
+  async index () {
+    const advertisement = await Advertisement.query()
+      .with('category')
+      .with('owner')
+      .with('pictures')
+      .with('comments')
+      .fetch()
+
+    return advertisement
   }
 
-  /**
-   * Render a form to be used for creating a new advertisement.
-   * GET advertisements/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
+  async store ({ request, auth }) {
+    const data = request.only([
+      'category_id',
+      'name',
+      'gender',
+      'age',
+      'color',
+      'breed',
+      'isCastrated',
+      'size',
+      'isDisabled',
+      'descrition'
+    ])
+
+    const user = auth.user
+
+    const advertisement = await Advertisement.create({
+      user_id: user.id,
+      ...data
+    })
+
+    await advertisement.loadMany(['category', 'owner', 'pictures', 'comments'])
+
+    return advertisement
   }
 
-  /**
-   * Create/save a new advertisement.
-   * POST advertisements
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async store ({ request, response }) {
+  async show ({ params }) {
+    const advertisement = await Advertisement.findOrFail(
+      params.advertisement_id
+    )
+
+    await advertisement.loadMany(['category', 'owner', 'pictures', 'comments'])
+
+    return advertisement
   }
 
-  /**
-   * Display a single advertisement.
-   * GET advertisements/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async show ({ params, request, response, view }) {
+  async update ({ params, request }) {
+    const data = request.only([
+      'category_id',
+      'name',
+      'gender',
+      'age',
+      'color',
+      'breed',
+      'isCastrated',
+      'size',
+      'isDisabled',
+      'descrition'
+    ])
+
+    const advertisement = await Advertisement.findOrFail(
+      params.advertisement_id
+    )
+
+    await advertisement.merge(data)
+
+    await advertisement.save()
+
+    await advertisement.loadMany(['category', 'owner', 'pictures', 'comments'])
+
+    return advertisement
   }
 
-  /**
-   * Render a form to update an existing advertisement.
-   * GET advertisements/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
-  }
+  async destroy ({ params }) {
+    const advertisement = await Advertisement.findOrFail(
+      params.advertisement_id
+    )
 
-  /**
-   * Update advertisement details.
-   * PUT or PATCH advertisements/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async update ({ params, request, response }) {
-  }
-
-  /**
-   * Delete a advertisement with id.
-   * DELETE advertisements/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async destroy ({ params, request, response }) {
+    await advertisement.delete()
   }
 }
 
