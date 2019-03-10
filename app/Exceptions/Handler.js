@@ -22,9 +22,9 @@ class ExceptionHandler extends BaseExceptionHandler {
     return response.status(error.status)
   }
 
-  async report (error, { request }) {
+  async report (error, { request, auth }) {
     Sentry.init({ dsn: Config.get('services.sentry.dsn') })
-    Sentry.captureException(error)
+    Sentry.captureException(error, request, auth)
   }
 }
 

@@ -1,6 +1,6 @@
 'use strict'
 
-class Session {
+class SessionStore {
   get validateAll () {
     return true
   }
@@ -13,4 +13,4 @@ class Session {
   }
 }
 
-module.exports = Session
+module.exports = SessionStore

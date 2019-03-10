@@ -18,7 +18,7 @@ Route.get('advertisements/comments/:id', 'CommentController.show')
 Route.get('files/:id', 'FileController.show')
 Route.get('advertisements/pictures/:id', 'AdvertisementFileController.show')
 
-Route.post('sessions', 'SessionController.store').validator('Session')
+Route.post('sessions', 'SessionController.store').validator('Session/Store')
 
 Route.resource('forgot-password', 'ForgotPasswordController')
   .apiOnly()

@@ -1,12 +1,26 @@
 'use strict'
 
+const User = use('App/Models/User')
+
+const LoginLog = use('App/Services/LoginLog')
+
 class SessionController {
   async store ({ request, response, auth }) {
-    const { email, password } = request.all()
+    try {
+      const { email, password } = request.all()
 
-    const token = await auth.attempt(email, password)
+      const user = await User.findByOrFail('email', email)
 
-    return token
+      const token = await auth.attempt(email, password)
+
+      await LoginLog.log(request, user)
+
+      return token
+    } catch (err) {
+      return response
+        .send(err.status)
+        .send({ error: { message: 'E-mail/Senha inválidos' } })
+    }
   }
 }
 
