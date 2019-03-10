@@ -26,7 +26,7 @@ module.exports = {
       time: moment().toISOString()
     }
 
-    if (Env.get('NODE_ENV') !== 'batata') {
+    if (Env.get('NODE_ENV') !== 'development') {
       const url = Env.get('MONGO_URL')
 
       try {
