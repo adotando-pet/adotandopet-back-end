@@ -15,10 +15,6 @@ class File extends Model {
   user () {
     return this.hasOne('App/Models/User')
   }
-
-  advertisements () {
-    return this.hasMany('App/Models/AdvertisementFile')
-  }
 }
 
 module.exports = File

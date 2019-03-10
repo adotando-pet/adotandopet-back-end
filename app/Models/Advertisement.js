@@ -11,10 +11,6 @@ class Advertisement extends Model {
     return this.belongsTo('App/Models/User')
   }
 
-  pictures () {
-    return this.hasMany('App/Models/AdvertisementFile')
-  }
-
   comments () {
     return this.hasMany('App/Models/Comment')
   }

@@ -7,7 +7,6 @@ class AdvertisementController {
     const advertisement = await Advertisement.query()
       .with('category')
       .with('owner')
-      .with('pictures')
       .with('comments')
       .fetch()
 
@@ -25,7 +24,7 @@ class AdvertisementController {
       'isCastrated',
       'size',
       'isDisabled',
-      'descrition'
+      'description'
     ])
 
     const user = auth.user
@@ -35,17 +34,15 @@ class AdvertisementController {
       ...data
     })
 
-    await advertisement.loadMany(['category', 'owner', 'pictures', 'comments'])
+    await advertisement.loadMany(['category', 'owner', 'comments'])
 
     return advertisement
   }
 
   async show ({ params }) {
-    const advertisement = await Advertisement.findOrFail(
-      params.advertisement_id
-    )
+    const advertisement = await Advertisement.findOrFail(params.id)
 
-    await advertisement.loadMany(['category', 'owner', 'pictures', 'comments'])
+    await advertisement.loadMany(['category', 'owner', 'comments'])
 
     return advertisement
   }
@@ -61,26 +58,22 @@ class AdvertisementController {
       'isCastrated',
       'size',
       'isDisabled',
-      'descrition'
+      'description'
     ])
 
-    const advertisement = await Advertisement.findOrFail(
-      params.advertisement_id
-    )
+    const advertisement = await Advertisement.findOrFail(params.id)
 
     await advertisement.merge(data)
 
     await advertisement.save()
 
-    await advertisement.loadMany(['category', 'owner', 'pictures', 'comments'])
+    await advertisement.loadMany(['category', 'owner', 'comments'])
 
     return advertisement
   }
 
   async destroy ({ params }) {
-    const advertisement = await Advertisement.findOrFail(
-      params.advertisement_id
-    )
+    const advertisement = await Advertisement.findOrFail(params.id)
 
     await advertisement.delete()
   }
