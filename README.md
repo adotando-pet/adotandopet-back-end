@@ -35,17 +35,17 @@
 
 * [Sobre o Projeto](#sobre-o-projeto)
   * [Feito com](#feito-com)
-* [Começando](#comecando)
-  * [Pré-requisitos](#pre-requisitos)
-  * [Instalação](#instalacao)
-* [Contribuição](#contribuicao)
-* [Licença](#licenca)
+* [Começando](#começando)
+  * [Pré-requisitos](#pré-requisitos)
+  * [Instalação](#instalação)
+* [Contribuição](#contribuição)
+* [Licença](#licença)
 * [Contato](#contato)
 
 
 
 <!-- ABOUT THE PROJECT -->
-## Sobre o Projeto (WIP)
+## Sobre o Projeto
 
 (Aqui vai uma descrição sobre o projeto)
 
@@ -87,7 +87,7 @@ Para verificar a instalação execute o comando:
 node -v && npm -v
 ```
 
-O retorno deve ser algo como?
+O retorno deve ser algo como:
 
 ```
 v8.11.3
@@ -275,7 +275,7 @@ DB_PASSWORD=root
 DB_DATABASE=adotandopet_pg
 ```
 
-*Obs.: Se você estiver usando Docker, o usuário e a senha padrão que ele cria é `docker`.
+*Obs.: Se você estiver usando Docker, o usuário e a senha padrão que ele cria é `docker`.*
 
 * Caso queira mudar a conexão para **MySQL** são necessárias duas modificações, a primeira é trocar as bibliotecas de conexão, a segunda é mudar a porta de conexão, por exemplo:
 
@@ -383,7 +383,7 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 
 <!-- CONTACT -->
-## Contato (WIP)
+## Contato
 
 Claudio Orlandi - [Github](https://github.com/cso01) - **cso.junior1996@gmail.com**
 
