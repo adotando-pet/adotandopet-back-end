@@ -55,7 +55,7 @@ Abaixo seguem as ferramentas utilizadas no desenvolvimento do projeto Adotando P
 * [NodeJS](https://nodejs.org/en/) - Node.js é um interpretador de código JavaScript com o código aberto, focado em migrar o Javascript do lado do cliente para servidores;
 * [AdonisJS](https://adonisjs.com/) - O AdonisJS é um framework de NodeJS altamente robusto que nos permitirá agilizar muito o desenvolvimento do nosso app;
 * [Sentry](https://sentry.io/welcome/) - O Sentry é um rastreador de erros de código aberto que ajuda os desenvolvedores a monitorar e corrigir falhas em tempo real;
-* [Redis](https://redis.io/) - O Redis é uma estrutura de dados do servidor. É open-source, em rede, na memória, e armazena chaves com durabilidade opcional.
+* [Redis](https://redis.io/) - O Redis é uma estrutura de dados do servidor. É open-source, em rede, na memória e armazena chaves com durabilidade opcional;
 * [Moment](https://momentjs.com/) - O Moment é uma Biblioteca para parse, validação, manipulação e leitura de Data e Hora em Javascript;
 * [MongoDB](https://www.mongodb.com/) - O MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++ e classificado como um programa de Banco de Dados NoSQL;
 * [Eslint](https://eslint.org/) - O ESLint é uma ferramenta de lint plugável para JavaScript e JSX;
@@ -303,7 +303,7 @@ ou
 npm uninstall mysql
 ```
 
-E depois configurar as variáveis no `env`, por exemplo:
+E depois configurar as variáveis no `.env`, por exemplo:
 
 ```
 DB_CONNECTION=sqlite
