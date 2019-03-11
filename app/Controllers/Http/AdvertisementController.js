@@ -14,7 +14,7 @@ class AdvertisementController {
   }
 
   async store ({ request, auth }) {
-    const data = request.only([
+    const { files, ...data } = request.only([
       'category_id',
       'name',
       'gender',
@@ -24,7 +24,8 @@ class AdvertisementController {
       'isCastrated',
       'size',
       'isDisabled',
-      'description'
+      'description',
+      'files'
     ])
 
     const user = auth.user
@@ -33,6 +34,10 @@ class AdvertisementController {
       user_id: user.id,
       ...data
     })
+
+    if (files && files.length > 0) {
+      await advertisement.files().attach(files)
+    }
 
     await advertisement.loadMany(['category', 'owner', 'comments'])
 

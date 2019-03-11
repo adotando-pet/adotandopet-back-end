@@ -22,7 +22,6 @@ class AdvertisementFileSchema extends Schema {
         .inTable('files')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
-      table.boolean('featured').notNullable()
       table.timestamps()
     })
   }
