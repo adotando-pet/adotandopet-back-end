@@ -11,10 +11,6 @@ class Advertisement extends Model {
     return this.belongsTo('App/Models/User')
   }
 
-  comments () {
-    return this.hasMany('App/Models/Comment')
-  }
-
   files () {
     return this.belongsToMany('App/Models/File').withTimestamps()
   }

@@ -33,10 +33,6 @@ class User extends Model {
     return this.hasMany('App/Models/Advertisement')
   }
 
-  comments () {
-    return this.hasMany('App/Models/Comment')
-  }
-
   phones () {
     return this.hasMany('App/Models/Phone')
   }
