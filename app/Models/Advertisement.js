@@ -14,6 +14,10 @@ class Advertisement extends Model {
   comments () {
     return this.hasMany('App/Models/Comment')
   }
+
+  files () {
+    return this.belongsToMany('App/Models/File').withTimestamps()
+  }
 }
 
 module.exports = Advertisement
