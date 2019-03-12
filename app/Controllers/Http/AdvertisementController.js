@@ -8,6 +8,7 @@ class AdvertisementController {
       .with('category')
       .with('owner')
       .with('comments')
+      .with('files')
       .fetch()
 
     return advertisement
@@ -39,7 +40,7 @@ class AdvertisementController {
       await advertisement.files().attach(files)
     }
 
-    await advertisement.loadMany(['category', 'owner', 'comments'])
+    await advertisement.loadMany(['category', 'owner', 'comments', 'files'])
 
     return advertisement
   }
@@ -47,13 +48,13 @@ class AdvertisementController {
   async show ({ params }) {
     const advertisement = await Advertisement.findOrFail(params.id)
 
-    await advertisement.loadMany(['category', 'owner', 'comments'])
+    await advertisement.loadMany(['category', 'owner', 'comments', 'files'])
 
     return advertisement
   }
 
   async update ({ params, request }) {
-    const data = request.only([
+    const { files, ...data } = request.only([
       'category_id',
       'name',
       'gender',
@@ -63,7 +64,8 @@ class AdvertisementController {
       'isCastrated',
       'size',
       'isDisabled',
-      'description'
+      'description',
+      'files'
     ])
 
     const advertisement = await Advertisement.findOrFail(params.id)
@@ -72,7 +74,11 @@ class AdvertisementController {
 
     await advertisement.save()
 
-    await advertisement.loadMany(['category', 'owner', 'comments'])
+    if (files && files.length > 0) {
+      await advertisement.files().sync(files)
+    }
+
+    await advertisement.loadMany(['category', 'owner', 'comments', 'files'])
 
     return advertisement
   }
