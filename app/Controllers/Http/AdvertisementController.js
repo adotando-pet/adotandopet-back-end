@@ -7,7 +7,6 @@ class AdvertisementController {
     const advertisement = await Advertisement.query()
       .with('category')
       .with('owner')
-      .with('comments')
       .with('files')
       .fetch()
 
@@ -40,7 +39,7 @@ class AdvertisementController {
       await advertisement.files().attach(files)
     }
 
-    await advertisement.loadMany(['category', 'owner', 'comments', 'files'])
+    await advertisement.loadMany(['category', 'owner', 'files'])
 
     return advertisement
   }
@@ -48,7 +47,7 @@ class AdvertisementController {
   async show ({ params }) {
     const advertisement = await Advertisement.findOrFail(params.id)
 
-    await advertisement.loadMany(['category', 'owner', 'comments', 'files'])
+    await advertisement.loadMany(['category', 'owner', 'files'])
 
     return advertisement
   }
@@ -78,7 +77,7 @@ class AdvertisementController {
       await advertisement.files().sync(files)
     }
 
-    await advertisement.loadMany(['category', 'owner', 'comments', 'files'])
+    await advertisement.loadMany(['category', 'owner', 'files'])
 
     return advertisement
   }

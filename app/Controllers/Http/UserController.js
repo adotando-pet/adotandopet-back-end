@@ -7,9 +7,8 @@ class UserController {
     const user = await User.query()
       .with('adoptions')
       .with('advertisements')
-      .with('comments')
       .with('phones')
-      .with('address')
+      .with('addresses')
       .with('roles')
       .with('permissions')
       .with('avatar')
@@ -24,7 +23,6 @@ class UserController {
     await user.loadMany([
       'adoptions',
       'advertisements',
-      'comments',
       'phones',
       'address',
       'avatar',
@@ -36,7 +34,7 @@ class UserController {
   }
 
   async store ({ request }) {
-    const { permissions, roles, ...data } = request.only([
+    const { address, permissions, roles, ...data } = request.only([
       'name',
       'email',
       'password',
@@ -44,7 +42,8 @@ class UserController {
       'age',
       'file_id',
       'permissions',
-      'roles'
+      'roles',
+      'address'
     ])
 
     const user = await User.create(data)
@@ -60,7 +59,6 @@ class UserController {
     await user.loadMany([
       'adoptions',
       'advertisements',
-      'comments',
       'phones',
       'address',
       'avatar',
@@ -100,7 +98,6 @@ class UserController {
     await user.loadMany([
       'adoptions',
       'advertisements',
-      'comments',
       'phones',
       'address',
       'avatar',
