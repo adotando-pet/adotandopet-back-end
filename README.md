@@ -391,7 +391,7 @@ Danilo Magrini - [Github](https://github.com/danilodgm) - **(email aqui)**
 
 Davi Mattos - [Github](https://github.com/davimattos) - **(email aqui)**
 
-Phellipe Rodrigues - [Github](https://github.com/phelliperodrigues) - **(email aqui)**
+Phellipe Rodrigues - [Github](https://github.com/phelliperodrigues) - **phellipephellipe@hotmail.com**
 
 [contributors-shield]: https://img.shields.io/badge/contributors-4-orange.svg?style=flat-square
 [license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
