@@ -339,8 +339,12 @@ migrate: 1551762243447_create_permission_user_table.js
 migrate: 1551762243450_create_role_user_table.js
 Database migrated successfully in 1.02 s
 ```
+11. Gerar KEY da aplicação:
 
-11. E o último passo para rodar a aplicação é executar o servidor do AdonisJS, e podemos fazer isso executando:
+```sh
+adonis key:generate
+```
+12. E o último passo para rodar a aplicação é executar o servidor do AdonisJS, e podemos fazer isso executando:
 
 ```sh
 adonis serve --dev
@@ -391,7 +395,7 @@ Danilo Magrini - [Github](https://github.com/danilodgm) - **(email aqui)**
 
 Davi Mattos - [Github](https://github.com/davimattos) - **(email aqui)**
 
-Phellipe Rodrigues - [Github](https://github.com/phelliperodrigues) - **(email aqui)**
+Phellipe Rodrigues - [Github](https://github.com/phelliperodrigues) - **phellipephellipe@hotmail.com**
 
 [contributors-shield]: https://img.shields.io/badge/contributors-4-orange.svg?style=flat-square
 [license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square

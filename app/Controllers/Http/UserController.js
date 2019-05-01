@@ -8,7 +8,7 @@ class UserController {
       .with('adoptions')
       .with('advertisements')
       .with('phones')
-      .with('addresses')
+      .with('address')
       .with('roles')
       .with('permissions')
       .with('avatar')
@@ -54,6 +54,10 @@ class UserController {
 
     if (permissions) {
       await user.permissions().attach(permissions)
+    }
+
+    if (address) {
+      await user.address().create(address)
     }
 
     await user.loadMany([
