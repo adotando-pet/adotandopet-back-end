@@ -1,7 +1,7 @@
 'use strict'
 
 const Env = use('Env')
-const Youch = use('Youch')
+const Youch = use('youch')
 const Config = use('Config')
 const Sentry = require('@sentry/node')
 const BaseExceptionHandler = use('BaseExceptionHandler')
