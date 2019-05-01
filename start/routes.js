@@ -19,15 +19,12 @@ Route.get('advertisements/pictures/:id', 'AdvertisementFileController.show')
 
 Route.post('sessions', 'SessionController.store').validator('Session/Store')
 
-Route.resource('forgot-password', 'ForgotPasswordController')
-  .apiOnly()
-  .except(['index', 'show', 'destroy'])
-  .validator(
-    new Map([
-      [['forgot-password.store'], ['ForgotPassword/Store']],
-      [['forgot-password.update'], ['ForgotPassword/Update']]
-    ])
-  )
+Route.post('forgot-password', 'ForgotPasswordController.store').validator(
+  'ForgotPassword/Store'
+)
+Route.put('forgot-password', 'ForgotPasswordController.update').validator(
+  'ForgotPassword/Update'
+)
 
 /**
  * Private Routes (Authenticated)
