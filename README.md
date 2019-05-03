@@ -391,7 +391,7 @@ Distribuído sob a licença MIT. Veja `LICENSE` para mais informações.
 
 Claudio Orlandi - [Github](https://github.com/cso01) - **cso.junior1996@gmail.com**
 
-Danilo Magrini - [Github](https://github.com/danilodgm) - **(email aqui)**
+Danilo Moreira - [Github](https://github.com/danilodgm) - **dgmdanilodgm@gmail.com**
 
 Davi Mattos - [Github](https://github.com/davimattos) - **(email aqui)**
 
