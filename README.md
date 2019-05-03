@@ -15,16 +15,16 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/cso01/adotando-pet-back-end-adonis">
+  <a href="https://github.com/adotando-pet/adotandopet-back-end">
     <img src="logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Adotando Pet</h3>
+  <h3 align="center">Adotando.Pet</h3>
 
   <p align="center">
-    <a href="https://github.com/cso01/adotando-pet-back-end-adonis">Reportar um Bug</a>
+    <a href="https://github.com/adotando-pet/adotandopet-back-end">Reportar um Bug</a>
     ·
-    <a href="https://github.com/cso01/adotando-pet-back-end-adonis">Solicitar Funcionalidade</a>
+    <a href="https://github.com/adotando-pet/adotandopet-back-end">Solicitar Funcionalidade</a>
   </p>
 </p>
 
@@ -213,7 +213,7 @@ Abaixo segue a lista das Interfaces mais usadas e recomendadas para cada Banco d
 1. Clone o repositório
 
 ```sh
-git clone https://github.com/cso01/adotando-pet-back-end-adonis.git
+git clone https://github.com/adotando-pet/adotandopet-back-end.git
 ```
 
 2. Instale os pacotes do NPM
