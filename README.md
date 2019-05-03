@@ -393,7 +393,7 @@ Claudio Orlandi - [Github](https://github.com/cso01) - **cso.junior1996@gmail.co
 
 Danilo Moreira - [Github](https://github.com/danilodgm) - **dgmdanilodgm@gmail.com**
 
-Davi Mattos - [Github](https://github.com/davimattos) - **(email aqui)**
+Davi Mattos - [Github](https://github.com/davimattos) - **davimattosdev@gmail.com**
 
 Phellipe Rodrigues - [Github](https://github.com/phelliperodrigues) - **phellipephellipe@hotmail.com**
 
