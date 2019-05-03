@@ -10,7 +10,7 @@ class AddressController {
 
     return address
   }
-
+ 
   async store ({ request, response, auth }) {
     const data = request.only([
       'zip',
