@@ -16,7 +16,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/adotando-pet/adotandopet-back-end">
-    <img src="logo.png" alt="Logo" width="320" height="320">
+    <img src="logo1.png" alt="Logo" width="320" height="320">
   </a>
 
   <h3 align="center">Adotando.Pet</h3>
