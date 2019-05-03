@@ -19,7 +19,7 @@
     <img src="logo.png" alt="Logo" width="320" height="320">
   </a>
 
-  <h3 align="center">Adotando.Pet</h3>
+  <h1 align="center">Adotando.pet</h1>
 
   <p align="center">
     <a href="https://github.com/adotando-pet/adotandopet-back-end">Reportar um Bug</a>
