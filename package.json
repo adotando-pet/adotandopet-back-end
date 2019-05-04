@@ -32,10 +32,11 @@
     "@sentry/node": "^4.6.4",
     "adonis-acl": "^1.1.1",
     "adonis-kue": "^5.0.1",
+    "adonis-swagger": "^1.2.9",
     "geoip-lite": "^1.3.6",
     "moment": "^2.24.0",
     "mongodb": "^3.1.13",
-    "mysql": "^2.17.1",
+    "pg": "^7.10.0",
     "useragent": "^2.3.0",
     "voca": "^1.4.0"
   },

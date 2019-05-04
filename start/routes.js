@@ -6,7 +6,7 @@ const Route = use('Route')
  * Public Routes
  */
 Route.get('/', () => {
-  return { greeting: 'Welcome to Adotando Pet!' }
+  return { greeting: 'Welcome to Adotando.Pet!' }
 })
 
 Route.post('users', 'UserController.store')
