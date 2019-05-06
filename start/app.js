@@ -23,7 +23,8 @@ const providers = [
   '@adonisjs/lucid-slugify/providers/SlugifyProvider',
   '@adonisjs/redis/providers/RedisProvider',
   'adonis-kue/providers/KueProvider',
-  '@adonisjs/drive/providers/DriveProvider'
+  '@adonisjs/drive/providers/DriveProvider',
+  'adonis-swagger/providers/SwaggerProvider'
 ]
 
 /*
