@@ -12,3 +12,5 @@ database/development.sqlite
 
 yarn.lock
 package-lock.json
+
+public
