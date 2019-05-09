@@ -1,0 +1,16 @@
+definitions:
+  Phone:
+    type: object
+    properties:
+      id:
+        type: int
+      number:
+        type: string
+      type:
+        type: enu
+      haveWhatsapp:
+        type: boolean
+    required:
+      - number
+      - type
+
