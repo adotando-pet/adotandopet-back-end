@@ -97,7 +97,7 @@ v8.11.3
 * Adonis CLI
 
 ```sh
-npm install -g @adonis/cli
+npm install -g @adonisjs/cli
 ```
 
 Para verificar a instalação execute o comando:
