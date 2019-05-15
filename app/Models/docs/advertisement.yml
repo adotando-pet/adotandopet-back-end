@@ -1,0 +1,26 @@
+definitions:
+  Advertisement:
+    type: object
+    properties:
+      isDisabled:
+        type: int
+      description:
+        type: string
+      pet_id:
+        type: int
+      isVancined:
+        type: int
+      special_cares:
+        type: int
+      special_cares_description:
+        type: string
+      temperament:
+        type: string
+      live_well:
+        type: string
+      sociable:
+        type: string
+      address_id:
+        type: int
+      user_id:
+        type: int

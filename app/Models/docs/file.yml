@@ -1,0 +1,13 @@
+definitions:
+  File:
+    type: object
+    properties:
+      file:
+        type: string
+      name:
+        type: string
+      type:
+        type: string
+      subtype:
+        type: string
+

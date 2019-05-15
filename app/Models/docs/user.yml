@@ -14,5 +14,8 @@ definitions:
         type: string
       age:
         type: int
+    required:
+    - "name"
+
 
 

@@ -1,0 +1,10 @@
+definitions:
+  Category:
+    type: object
+    properties:
+      title:
+        type: string
+      slug:
+        type: string
+      description:
+        type: string
