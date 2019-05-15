@@ -2,21 +2,22 @@ definitions:
   User:
     type: object
     properties:
-      id:
+      user_id:
         type: int
-      name:
+      zip:
+        type: int
+      country:
         type: string
-      email:
+      state:
         type: string
-      password:
+      city:
         type: string
-      password_confirmation:
+      street:
         type: string
-      gender:
+      number:
+        type: int
+      disrict:
         type: string
-    required:
-      - name
-      - email
-      - password
-      - password_confirmation
-      - gender
+      custom:
+        type: string
+
