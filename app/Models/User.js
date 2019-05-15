@@ -44,6 +44,10 @@ class User extends Model {
   avatar () {
     return this.belongsTo('App/Models/File')
   }
+
+  pets () {
+    return this.hasMany('App/Models/Pet')
+  }
 }
 
 module.exports = User
