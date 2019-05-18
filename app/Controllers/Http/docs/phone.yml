@@ -1,7 +1,7 @@
-/users:
+/phone:
   get:
     tags:
-      - User
+      - Phone
     description: List all registered users
     produces:
       - application/json
@@ -10,7 +10,7 @@
         description: List of Users
   post:
     tags:
-      - User
+      - Phone
     description: Create new User
     produces:
       - application/json

@@ -1,7 +1,7 @@
-/users:
+/pet:
   get:
     tags:
-      - User
+      - Pet
     description: List all registered users
     produces:
       - application/json
@@ -10,7 +10,7 @@
         description: List of Users
   post:
     tags:
-      - User
+      - Pet
     description: Create new User
     produces:
       - application/json

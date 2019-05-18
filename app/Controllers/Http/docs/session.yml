@@ -1,7 +1,7 @@
-/users:
+/session:
   get:
     tags:
-      - User
+      - Session
     description: List all registered users
     produces:
       - application/json
@@ -10,7 +10,7 @@
         description: List of Users
   post:
     tags:
-      - User
+      - Session
     description: Create new User
     produces:
       - application/json
