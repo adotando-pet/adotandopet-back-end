@@ -3,10 +3,9 @@
 const Model = use('Model')
 
 class Advertisement extends Model {
-  pet() {
-    return this.belongsToMany('App/Models/Pet').withTimestamps()
+  pet () {
+    return this.hasOne('App/Models/Pet')
   }
- 
 }
 
 module.exports = Advertisement

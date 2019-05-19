@@ -60,16 +60,6 @@ class UserController {
       await user.address().create(address)
     }
 
-    await user.loadMany([
-      'adoptions',
-      'advertisements',
-      'phones',
-      'address',
-      'avatar',
-      'roles',
-      'permissions'
-    ])
-
     return user
   }
 
@@ -98,16 +88,6 @@ class UserController {
     if (permissions) {
       await user.permissions().sync(permissions)
     }
-
-    await user.loadMany([
-      'adoptions',
-      'advertisements',
-      'phones',
-      'address',
-      'avatar',
-      'roles',
-      'permissions'
-    ])
 
     return user
   }
