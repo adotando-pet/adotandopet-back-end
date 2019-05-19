@@ -34,7 +34,7 @@ class PetController {
 
     const pet = await Pet.findOrFail(params.id)
 
-    await pet.merge(date)
+    await pet.merge(data)
 
     await pet.save()
 
