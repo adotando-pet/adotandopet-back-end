@@ -4,14 +4,14 @@ const Schema = use('Schema')
 
 class AdvertisementFileSchema extends Schema {
   up () {
-    this.create('advertisement_file', table => {
+    this.create('pets_id', table => {
       table.increments()
       table
-        .integer('advertisement_id')
+        .integer('pet_id')
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('advertisements')
+        .inTable('pets')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
       table
