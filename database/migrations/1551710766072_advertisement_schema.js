@@ -14,6 +14,14 @@ class AdvertisementSchema extends Schema {
       table.enu('liveWell')
       table.enu('sociable')
       table.text('description')
+      table
+      .integer('pet_id')
+      .unsigned()
+      .notNullable()
+      .references('id')
+      .inTable('pets')
+      .onUpdate('CASCADE')
+      .onDelete('CASCADE')
       table.timestamps()
     })
   }
