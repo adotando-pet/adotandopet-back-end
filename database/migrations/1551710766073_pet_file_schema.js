@@ -2,9 +2,9 @@
 
 const Schema = use('Schema')
 
-class AdvertisementFileSchema extends Schema {
+class PetFileSchema extends Schema {
   up () {
-    this.create('pets_id', table => {
+    this.create('pets_file', table => {
       table.increments()
       table
         .integer('pet_id')

@@ -17,7 +17,7 @@ class File extends Model {
   }
 
   advertisements () {
-    return this.belongsToMany('App/Models/Advertisement')
+    return this.belongsToMany('App/Models/Pet')
   }
 }
 
