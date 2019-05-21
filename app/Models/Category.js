@@ -15,8 +15,8 @@ class Category extends Model {
     })
   }
 
-  advertisements () {
-    return this.hasMany('App/Models/Advertisement')
+  pets () {
+    return this.hasMany('App/Models/Pet')
   }
 }
 

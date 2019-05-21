@@ -5,7 +5,7 @@ const Category = use('App/Models/Category')
 class CategoryController {
   async index () {
     const category = await Category.query()
-      .with('advertisements')
+      .with('pets')
       .fetch()
 
     return category
@@ -22,7 +22,7 @@ class CategoryController {
   async show ({ params }) {
     const category = await Category.findOrFail(params.id)
 
-    await category.load('advertisements')
+    await category.load('pets')
 
     return category
   }

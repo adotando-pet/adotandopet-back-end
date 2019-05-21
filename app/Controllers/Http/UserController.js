@@ -6,7 +6,7 @@ class UserController {
   async index () {
     const user = await User.query()
       .with('adoptions')
-      .with('advertisements')
+      .with('pets')
       .with('phones')
       .with('address')
       .with('roles')
@@ -22,7 +22,7 @@ class UserController {
 
     await user.loadMany([
       'adoptions',
-      'advertisements',
+      'pets',
       'phones',
       'address',
       'avatar',
@@ -60,6 +60,16 @@ class UserController {
       await user.address().create(address)
     }
 
+    await user.loadMany([
+      'adoptions',
+      'pets',
+      'phones',
+      'address',
+      'avatar',
+      'roles',
+      'permissions'
+    ])
+
     return user
   }
 
@@ -88,6 +98,16 @@ class UserController {
     if (permissions) {
       await user.permissions().sync(permissions)
     }
+
+    await user.loadMany([
+      'adoptions',
+      'pets',
+      'phones',
+      'address',
+      'avatar',
+      'roles',
+      'permissions'
+    ])
 
     return user
   }

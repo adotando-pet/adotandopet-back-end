@@ -4,7 +4,7 @@ const Model = use('Model')
 
 class Advertisement extends Model {
   pet () {
-    return this.hasOne('App/Models/Pet')
+    return this.hasMany('App/Models/Pet')
   }
 }
 
