@@ -13,7 +13,7 @@ class Pet extends Model {
   }
 
   files () {
-    return this.belongsToMany('App/Models/File').withTimestamps()
+    return this.belongsToMany('App/Models/File').pivotTable('pet_file').withTimestamps()
   }
 }
 

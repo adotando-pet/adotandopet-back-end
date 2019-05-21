@@ -17,7 +17,7 @@ class File extends Model {
   }
 
   pets () {
-    return this.belongsToMany('App/Models/Pet')
+    return this.belongsToMany('App/Models/Pet').pivotTable('pet_file')
   }
 }
 
