@@ -1,0 +1,23 @@
+definitions:
+  Address:
+    type: object
+    properties:
+      user_id:
+        type: int
+      zip:
+        type: int
+      country:
+        type: string
+      state:
+        type: string
+      city:
+        type: string
+      street:
+        type: string
+      number:
+        type: int
+      disrict:
+        type: string
+      custom:
+        type: string
+

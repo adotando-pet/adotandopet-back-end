@@ -54,4 +54,6 @@ Route.group(() => {
   Route.resource('files', 'FileController')
     .apiOnly()
     .except(['show'])
+
+  Route.resource('pets', 'PetsController').apiOnly()
 }).middleware('auth')

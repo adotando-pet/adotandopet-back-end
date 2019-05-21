@@ -2,15 +2,12 @@ definitions:
   Phone:
     type: object
     properties:
-      id:
+      user_id:
         type: int
       number:
         type: string
       type:
-        type: enu
+        type: string
       haveWhatsapp:
-        type: boolean
-    required:
-      - number
-      - type
+        type: string
 

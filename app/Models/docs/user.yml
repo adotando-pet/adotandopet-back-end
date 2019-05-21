@@ -2,21 +2,20 @@ definitions:
   User:
     type: object
     properties:
-      id:
+      avatar_id:
         type: int
       name:
+        type: string
+      gender:
         type: string
       email:
         type: string
       password:
         type: string
-      password_confirmation:
-        type: string
-      gender:
-        type: string
+      age:
+        type: int
     required:
-      - name
-      - email
-      - password
-      - password_confirmation
-      - gender
+    - "name"
+
+
+

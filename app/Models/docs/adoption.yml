@@ -1,0 +1,11 @@
+definitions:
+  Adopition:
+    type: object
+    properties:
+      user_id:
+        type: int
+      advertisement_id:
+        type: int
+      status:
+        type: string
+
