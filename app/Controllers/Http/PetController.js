@@ -23,7 +23,7 @@ class PetController {
       await pet.files().attach(files)
     }
 
-    await pet.loadMany(['user', 'category'])
+    await pet.loadMany(['user', 'files', 'category'])
 
     return pet
   }
@@ -31,7 +31,7 @@ class PetController {
   async show ({ params }) {
     const pet = await Pet.findOrFail(params.id)
 
-    await pet.loadMany(['user', 'category'])
+    await pet.loadMany(['user', 'files', 'category'])
 
     return pet
   }
@@ -49,7 +49,7 @@ class PetController {
       await pet.files().sync(files)
     }
 
-    await pet.loadMany(['user', 'category'])
+    await pet.loadMany(['user', 'files', 'category'])
 
     return pet
   }
