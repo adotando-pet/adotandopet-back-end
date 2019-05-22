@@ -2,16 +2,16 @@
 
 const Schema = use('Schema')
 
-class AdvertisementFileSchema extends Schema {
+class PetFileSchema extends Schema {
   up () {
-    this.create('advertisement_file', table => {
+    this.create('pet_file', table => {
       table.increments()
       table
-        .integer('advertisement_id')
+        .integer('pet_id')
         .unsigned()
         .notNullable()
         .references('id')
-        .inTable('advertisements')
+        .inTable('pets')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
       table
@@ -27,8 +27,8 @@ class AdvertisementFileSchema extends Schema {
   }
 
   down () {
-    this.drop('advertisement_file')
+    this.drop('pets_file')
   }
 }
 
-module.exports = AdvertisementFileSchema
+module.exports = PetFileSchema

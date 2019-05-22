@@ -55,5 +55,5 @@ Route.group(() => {
     .apiOnly()
     .except(['show'])
 
-  Route.resource('pets', 'PetsController').apiOnly()
+  Route.resource('pets', 'PetController').apiOnly()
 }).middleware('auth')

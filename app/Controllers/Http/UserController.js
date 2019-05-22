@@ -6,7 +6,7 @@ class UserController {
   async index () {
     const user = await User.query()
       .with('adoptions')
-      .with('advertisements')
+      .with('pets')
       .with('phones')
       .with('address')
       .with('roles')
@@ -22,7 +22,7 @@ class UserController {
 
     await user.loadMany([
       'adoptions',
-      'advertisements',
+      'pets',
       'phones',
       'address',
       'avatar',
@@ -62,7 +62,7 @@ class UserController {
 
     await user.loadMany([
       'adoptions',
-      'advertisements',
+      'pets',
       'phones',
       'address',
       'avatar',
@@ -101,7 +101,7 @@ class UserController {
 
     await user.loadMany([
       'adoptions',
-      'advertisements',
+      'pets',
       'phones',
       'address',
       'avatar',

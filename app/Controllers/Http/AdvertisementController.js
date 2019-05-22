@@ -7,7 +7,7 @@ class AdvertisementController {
     const advertisement = await Advertisement.query()
       .with('category')
       .with('owner')
-      .with('files')
+      .with('pets')
       .fetch()
 
     return advertisement
@@ -16,16 +16,15 @@ class AdvertisementController {
   async store ({ request, auth }) {
     const { files, ...data } = request.only([
       'category_id',
-      'name',
-      'gender',
-      'age',
-      'color',
-      'breed',
+      'pet_id',
       'isCastrated',
-      'size',
       'isDisabled',
       'description',
-      'files'
+      'isVacined',
+      'specialCare',
+      'temperament',
+      'liveWell',
+      'sociable'
     ])
 
     const user = auth.user

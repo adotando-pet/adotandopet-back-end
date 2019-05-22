@@ -7,7 +7,21 @@ class AdvertisementSchema extends Schema {
     this.create('advertisements', table => {
       table.increments()
       table.boolean('isDisabled').notNullable()
+      table.boolean('isVacined').notNullable()
+      table.boolean('specialCare').notNullable()
+      table.text('specialCareDescription').notNullable()
+      table.string('temperament')
+      table.string('liveWell')
+      table.string('sociable')
       table.text('description')
+      table
+        .integer('pet_id')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('pets')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
       table.timestamps()
     })
   }

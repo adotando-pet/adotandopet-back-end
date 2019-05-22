@@ -16,8 +16,8 @@ class File extends Model {
     return this.hasOne('App/Models/User')
   }
 
-  advertisements () {
-    return this.belongsToMany('App/Models/Advertisement')
+  pets () {
+    return this.belongsToMany('App/Models/Pet').pivotTable('pet_file')
   }
 }
 
