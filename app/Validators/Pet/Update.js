@@ -12,7 +12,8 @@ class PetUpdate {
       color: '',
       breed: '',
       isCastrated: '',
-      size: ''
+      size: '',
+      category_id: 
     }
   }
 }

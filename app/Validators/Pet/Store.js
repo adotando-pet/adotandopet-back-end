@@ -13,7 +13,8 @@ class PetStore {
       color: 'required',
       breed: 'required',
       isCastrated: 'required',
-      size: 'required'
+      size: 'required',
+      category_id: 'required'
       // validation rules
     }
   }
