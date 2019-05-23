@@ -7,9 +7,7 @@ class FileStore {
   get rules () {
     return {
       
-        types: ['image'],
-        size: '12mb',
-        extnames: ['png', 'jpg']
+        file: 'required|file|file_ext:png,jpg,jpeg|file_size:6mb'
       }
     }
   }
