@@ -50,9 +50,7 @@ Route.group(() => {
   Route.get('advertisements/adoptions/:id', 'AdoptionController.show')
   Route.put('advertisements/adoptions/:id', 'AdoptionController.update')
   Route.delete('advertisements/adoptions/:id', 'AdoptionController.destroy')
-  Route.resource('files', 'FileController')
-    .apiOnly()
-    .except(['show'])
+
 
   Route.get('/pets','PetController.index')
   Route.post('/pets', 'PetController.store').validator('Pet/Store')
@@ -65,5 +63,10 @@ Route.group(() => {
   Route.get('/phones/:id', 'PhoneController.show' )
   Route.put('/phones/:id','PhoneController.update').validator('Phone/Update')
   Route.delete('/phones/:id','PhoneController.destroy')
+
+  Route.get('/files','FileController.index')
+  Route.post('/files', 'FileController.store').validator('File/Store')
+  Route.put('/files/:id','FileController.update').validator('File/Update')
+  Route.delete('/files/:id','FileController.destroy')
 
   }).middleware('auth')
