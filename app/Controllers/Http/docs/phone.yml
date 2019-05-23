@@ -2,29 +2,24 @@
   get:
     tags:
       - Phone
-    description: List all registered users
+    description: List all registered phones
     produces:
       - application/json
     responses:
       200:
-        description: List of Users
+        description: List of phones
   post:
     tags:
       - Phone
-    description: Create new User
+    description: Create new Phone
     produces:
       - application/json
     parameters:
-      - name: username
-        description: Username to use for login.
+      - name: userId
+        description: Id owner of number
         in: formData
         required: true
-        type: string
-      - name: password
-        description: User's password.
-        in: formData
-        required: true
-        type: string
+        type: integer
     responses:
       200:
-        description: login
+        description: number create
