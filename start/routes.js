@@ -41,6 +41,7 @@ Route.group(() => {
   Route.resource('advertisements', 'AdvertisementController')
     .apiOnly()
     .except(['index', 'show'])
+  Route.resource('addresses', 'AddressController').apiOnly()
   Route.get('advertisements/adoptions', 'AdoptionController.index')
   Route.post(
     'advertisements/:advertisement_id/adoptions',

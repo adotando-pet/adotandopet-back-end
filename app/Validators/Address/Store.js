@@ -1,9 +1,18 @@
 'use strict'
 
 class AddressStore {
+  get validateAll(){
+    return true
+  }
   get rules () {
     return {
-      // validation rules
+      zip: 'required',
+      country: 'required',
+      state: 'required',
+      city: 'required',
+      street: 'required',
+      number: 'required',
+      district: 'required'
     }
   }
 }
