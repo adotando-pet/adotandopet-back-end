@@ -39,7 +39,6 @@ Route.group(() => {
   Route.resource('permissions', 'PermissionController').apiOnly()
   Route.resource('roles', 'RoleController').apiOnly()
   Route.resource('addresses', 'AddressController').apiOnly()
-  Route.resource('phones', 'PhoneController').apiOnly()
   Route.resource('advertisements', 'AdvertisementController')
     .apiOnly()
     .except(['index', 'show'])
@@ -60,5 +59,11 @@ Route.group(() => {
   Route.get('/pets/:id', 'PetController.show' )
   Route.put('/pets/:id','PetController.update').validator('Pet/Update')
   Route.delete('/pets/:id','PetController.destroy')
+
+  Route.get('/phones','PhoneController.index')
+  Route.post('/phones', 'PhoneController.store').validator('Phone/Store')
+  Route.get('/phones/:id', 'PhoneController.show' )
+  Route.put('/phones/:id','PhoneController.update').validator('Phone/Update')
+  Route.delete('/phones/:id','PhoneController.destroy')
 
   }).middleware('auth')
