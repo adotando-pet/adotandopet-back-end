@@ -38,7 +38,6 @@ Route.group(() => {
     .except(['index', 'show'])
   Route.resource('permissions', 'PermissionController').apiOnly()
   Route.resource('roles', 'RoleController').apiOnly()
-  Route.resource('addresses', 'AddressController').apiOnly()
   Route.resource('advertisements', 'AdvertisementController')
     .apiOnly()
     .except(['index', 'show'])
@@ -68,5 +67,11 @@ Route.group(() => {
   Route.post('/files', 'FileController.store').validator('File/Store')
   Route.put('/files/:id','FileController.update').validator('File/Update')
   Route.delete('/files/:id','FileController.destroy')
+
+  Route.get('/addresses','AddressController.index')
+  Route.post('/addresses', 'AddressController.store').validator('Address/Store')
+  Route.get('/addresses/:id', 'AddressController.show' )
+  Route.put('/addresses/:id','AddressController.update').validator('Address/Update')
+  Route.delete('/addresses/:id','AddressController.destroy')
 
   }).middleware('auth')
