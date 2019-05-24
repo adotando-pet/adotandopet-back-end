@@ -33,9 +33,9 @@ Route.group(() => {
   
 
   Route.get('advertisements/adoptions', 'AdoptionController.index')
-  Route.post('advertisements/:advertisement_id/adoptions','AdoptionController.store')
+  Route.post('advertisements/:advertisement_id/adoptions','AdoptionController.store').validator('Adoption/Store')
   Route.get('advertisements/adoptions/:id', 'AdoptionController.show')
-  Route.put('advertisements/adoptions/:id', 'AdoptionController.update')
+  Route.put('advertisements/adoptions/:id', 'AdoptionController.update').validator('Adoption/Update')
   Route.delete('advertisements/adoptions/:id', 'AdoptionController.destroy')
 
   Route.get('advertisements/:id', 'AdoptionController.show').validator('Advertisement/Store')
