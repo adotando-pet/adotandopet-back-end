@@ -1,9 +1,20 @@
 'use strict'
 
 class AdvertisementSotre {
+  get validateAll(){
+    return true
+  }
   get rules () {
     return {
-      // validation rules
+      isCastrated: "required",
+      isDisabled: "required",
+      description: "required",
+      isVacined: "required",
+      specialCare: "required",
+      temperament: "required",
+      liveWell: "required",
+      sociable: "required",
+      pet_id: "required"
     }
   }
 }
