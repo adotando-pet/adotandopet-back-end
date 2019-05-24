@@ -77,5 +77,10 @@ Route.group(() => {
   Route.put('/user/:id','UserController.update').validator('User/Update')
   Route.delete('/user/:id','UserController.destroy')
 
-
+  Route.get('/roles','RoleController.index')
+  Route.post('/roles', 'RoleController.store').validator('Role/Store')
+  Route.get('/roles/:id', 'RoleController.show' )
+  Route.put('/roles/:id','RoleController.update').validator('Role/Update')
+  Route.delete('/roles/:id','RoleController.destroy')
+  
   }).middleware('auth')

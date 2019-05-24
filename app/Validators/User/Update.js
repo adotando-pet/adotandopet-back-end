@@ -7,7 +7,7 @@ class UserUpdate {
   get rules () {
     return {
       name: '',
-      email: 'required|email',
+      email: 'email',
       password: '',
       password_confirmation: '',
       gender: '',
