@@ -45,8 +45,8 @@ Route.group(() => {
     'advertisements/:advertisement_id/adoptions',
     'AdoptionController.store'
   )
-  Route.get('advertisements/adoptions/:id', 'AdoptionController.show')
-  Route.put('advertisements/adoptions/:id', 'AdoptionController.update')
+  Route.get('advertisements/adoptions/:id', 'AdoptionController.show').validator('Category/Store')
+  Route.put('advertisements/adoptions/:id', 'AdoptionController.update').validator('Category/Update')
   Route.delete('advertisements/adoptions/:id', 'AdoptionController.destroy')
 
 
@@ -74,7 +74,7 @@ Route.group(() => {
   Route.delete('/addresses/:id','AddressController.destroy')
 
   Route.post('/categories', 'CategoryController.store').validator('Category/Store')
-  Route.put('/categories', 'CategoryController.update').validator('Category/Update')
-  Route.delete('/categories', 'CategoryController.destory')
+  Route.put('/categories/:id', 'CategoryController.update').validator('Category/Update')
+  Route.delete('/categories/:id', 'CategoryController.destory')
 
   }).middleware('auth')
