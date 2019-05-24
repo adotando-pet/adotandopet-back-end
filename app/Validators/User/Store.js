@@ -1,9 +1,17 @@
 'use strict'
 
 class UserStore {
+  get validateAll(){
+    return true
+  }
   get rules () {
     return {
-      // validation rules
+      name: 'required',
+      email: 'required|email',
+      password: 'required',
+      password_confirmation: 'required',
+      gender: 'required',
+      age: 'required'
     }
   }
 }

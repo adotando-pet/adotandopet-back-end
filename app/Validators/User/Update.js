@@ -1,9 +1,17 @@
 'use strict'
 
 class UserUpdate {
+  get validateAll(){
+    return true
+  }
   get rules () {
     return {
-      // validation rules
+      name: '',
+      email: 'required|email',
+      password: '',
+      password_confirmation: '',
+      gender: '',
+      age: ''
     }
   }
 }
