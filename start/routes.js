@@ -9,7 +9,7 @@ Route.get('/', () => {
   return { greeting: 'Welcome to Adotando.Pet!' }
 })
 
-Route.post('users', 'UserController.store')
+Route.post('users', 'UserController.store').validator('User/Store')
 Route.get('categories', 'CategoryController.index')
 Route.get('categories/:id', 'CategoryController.show')
 Route.get('advertisements', 'AdvertisementController.index')
@@ -30,24 +30,19 @@ Route.put('forgot-password', 'ForgotPasswordController.update').validator(
  * Private Routes (Authenticated)
  */
 Route.group(() => {
-  Route.resource('users', 'UserController')
-    .apiOnly()
-    .except(['store'])
-
+  
   Route.resource('permissions', 'PermissionController').apiOnly()
   Route.resource('roles', 'RoleController').apiOnly()
-  Route.resource('advertisements', 'AdvertisementController')
-    .apiOnly()
-    .except(['index', 'show'])
-  Route.resource('addresses', 'AddressController').apiOnly()
+
   Route.get('advertisements/adoptions', 'AdoptionController.index')
-  Route.post(
-    'advertisements/:advertisement_id/adoptions',
-    'AdoptionController.store'
-  )
-  Route.get('advertisements/adoptions/:id', 'AdoptionController.show').validator('Category/Store')
-  Route.put('advertisements/adoptions/:id', 'AdoptionController.update').validator('Category/Update')
+  Route.post('advertisements/:advertisement_id/adoptions','AdoptionController.store')
+  Route.get('advertisements/adoptions/:id', 'AdoptionController.show')
+  Route.put('advertisements/adoptions/:id', 'AdoptionController.update')
   Route.delete('advertisements/adoptions/:id', 'AdoptionController.destroy')
+
+  Route.get('advertisements/:id', 'AdoptionController.show').validator('Advertisement/Store')
+  Route.put('advertisements/:id', 'AdoptionController.update').validator('Advertisement/Update')
+  Route.delete('advertisements/:id', 'AdoptionController.destroy')
 
 
   Route.get('/pets','PetController.index')
@@ -76,5 +71,11 @@ Route.group(() => {
   Route.post('/categories', 'CategoryController.store').validator('Category/Store')
   Route.put('/categories/:id', 'CategoryController.update').validator('Category/Update')
   Route.delete('/categories/:id', 'CategoryController.destory')
+
+  Route.get('/user','UserController.index')
+  Route.get('/user/:id', 'UserController.show' )
+  Route.put('/user/:id','UserController.update').validator('User/Update')
+  Route.delete('/user/:id','UserController.destroy')
+
 
   }).middleware('auth')
