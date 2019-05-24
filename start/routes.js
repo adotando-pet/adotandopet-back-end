@@ -33,9 +33,7 @@ Route.group(() => {
   Route.resource('users', 'UserController')
     .apiOnly()
     .except(['store'])
-  Route.resource('categories', 'CategoryController')
-    .apiOnly()
-    .except(['index', 'show'])
+
   Route.resource('permissions', 'PermissionController').apiOnly()
   Route.resource('roles', 'RoleController').apiOnly()
   Route.resource('advertisements', 'AdvertisementController')
@@ -74,5 +72,9 @@ Route.group(() => {
   Route.get('/addresses/:id', 'AddressController.show' )
   Route.put('/addresses/:id','AddressController.update').validator('Address/Update')
   Route.delete('/addresses/:id','AddressController.destroy')
+
+  Route.post('/categories', 'CategoryController.store').validator('Category/Store')
+  Route.put('/categories', 'CategoryController.update').validator('Category/Update')
+  Route.delete('/categories', 'CategoryController.destory')
 
   }).middleware('auth')
