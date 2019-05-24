@@ -31,8 +31,6 @@ Route.put('forgot-password', 'ForgotPasswordController.update').validator(
  */
 Route.group(() => {
   
-  Route.resource('permissions', 'PermissionController').apiOnly()
-  Route.resource('roles', 'RoleController').apiOnly()
 
   Route.get('advertisements/adoptions', 'AdoptionController.index')
   Route.post('advertisements/:advertisement_id/adoptions','AdoptionController.store')
@@ -82,5 +80,11 @@ Route.group(() => {
   Route.get('/roles/:id', 'RoleController.show' )
   Route.put('/roles/:id','RoleController.update').validator('Role/Update')
   Route.delete('/roles/:id','RoleController.destroy')
-  
+
+  Route.get('/permissions','PermissionController.index')
+  Route.post('/permissions', 'PermissionController.store').validator('Permission/Store')
+  Route.get('/permissions/:id', 'PermissionController.show' )
+  Route.put('/permissions/:id','PermissionController.update').validator('Permission/Update')
+  Route.delete('/permissions/:id','PermissionController.destroy')
+
   }).middleware('auth')
