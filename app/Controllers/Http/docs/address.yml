@@ -2,29 +2,64 @@
   get:
     tags:
       - Address
-    description: List all registered users
+    description: List all registered address
     produces:
       - application/json
     responses:
       200:
-        description: List of Users
+        description: List of address
   post:
     tags:
       - Address
-    description: Create new User
+    description: Create new address
     produces:
       - application/json
     parameters:
-      - name: username
-        description: Username to use for login.
+      - name: userId
+        description: Id owner of address
         in: formData
         required: true
         type: string
-      - name: password
-        description: User's password.
+      - name: zip
+        description: Zone Information Postal
+        in: formData
+        required: true
+        type: integer
+      - name: country
+        description: Country of owner
+        in: formData
+        required: true
+        type: string
+      - name: state
+        description: State of owner
+        in: formData
+        required: true
+        type: string
+      - name: city
+        description: City of owner
+        in: formData
+        required: true
+        type: string
+      - name: street
+        description: Street of owner
+        in: formData
+        required: true
+        type: string
+      - name: number
+        description: Number of address
+        in: formData
+        required: true
+        type: integer
+      - name: district
+        description: District of owner
+        in: formData
+        required: true
+        type: string
+      - name: complement
+        description: Complement of address
         in: formData
         required: true
         type: string
     responses:
       200:
-        description: login
+        description: address created

@@ -2,29 +2,64 @@
   get:
     tags:
       - Advertisement
-    description: List all registered users
+    description: List all registered advertisement
     produces:
       - application/json
     responses:
       200:
-        description: List of Users
+        description: List of advertisement
   post:
     tags:
       - Advertisement
-    description: Create new User
+    description: Create new advertisement
     produces:
       - application/json
     parameters:
-      - name: username
-        description: Username to use for login.
+      - name: isDisabled
+        description: Select option
+        in: formData
+        required: true
+        type: boolean
+      - name: isVacined
+        description: Select option
+        in: formData
+        required: true
+        type: boolean
+      - name: specialCare
+        description: Select option
+        in: formData
+        required: true
+        type: boolean
+      - name: specialCareDescription
+        description: Description of special care
         in: formData
         required: true
         type: string
-      - name: password
-        description: User's password.
+      - name: temperament
+        description: Description of temperament
         in: formData
         required: true
         type: string
+      - name: liveWell
+        description: Description of live well
+        in: formData
+        required: true
+        type: string
+      - name: sociable
+        description: Description of sociable
+        in: formData
+        required: true
+        type: string
+      - name: description
+        description: Description of pet
+        in: formData
+        required: true
+        type: string
+      - name: petId
+        description: Id of pet
+        in: formData
+        required: true
+        type: integer
     responses:
       200:
-        description: login
+        description: advertisements created

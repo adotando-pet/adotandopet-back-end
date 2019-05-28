@@ -2,29 +2,34 @@
   get:
     tags:
       - Category
-    description: List all registered users
+    description: List all registered categories
     produces:
       - application/json
     responses:
       200:
-        description: List of Users
+        description: List of categories
   post:
     tags:
       - Category
-    description: Create new User
+    description: Create new category
     produces:
       - application/json
     parameters:
-      - name: username
-        description: Username to use for login.
+      - name: title
+        description: Title of category
         in: formData
         required: true
         type: string
-      - name: password
-        description: User's password.
+      - name: slug
+        description: Slug of category
+        in: formData
+        required: true
+        type: string
+      - name: description
+        description: Description of category
         in: formData
         required: true
         type: string
     responses:
       200:
-        description: login
+        description: category created

@@ -2,29 +2,64 @@
   get:
     tags:
       - Pet
-    description: List all registered users
+    description: List all registered pets
     produces:
       - application/json
     responses:
       200:
-        description: List of Users
+        description: List of Pets
   post:
     tags:
       - Pet
-    description: Create new User
+    description: Create new Pet
     produces:
       - application/json
     parameters:
-      - name: username
-        description: Username to use for login.
+      - name: userId
+        description: Id of owner of pet
+        in: formData
+        required: true
+        type: integer
+      - name: category_id
+        description: Id of category
+        in: formData
+        required: true
+        type: integer
+      - name: name
+        description: Name of pet
         in: formData
         required: true
         type: string
-      - name: password
-        description: User's password.
+      - name: gender
+        description: Gender of pet
+        in: formData
+        required: true
+        type: enum
+      - name: age
+        description: Age of pet
+        in: formData
+        required: true
+        type: integer
+      - name: color
+        description: Color of pet
         in: formData
         required: true
         type: string
+      - name: breed
+        description: breed of pet
+        in: formData
+        required: true
+        type: string
+      - name: isCastrated
+        description: Select option
+        in: formData
+        required: true
+        type: boolean
+      - name: size
+        description: Size of pet
+        in: formData
+        required: true
+        type: enum
     responses:
       200:
-        description: login
+        description: pet created
