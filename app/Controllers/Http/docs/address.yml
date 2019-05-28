@@ -18,48 +18,104 @@
       - name: userId
         description: Id owner of address
         in: formData
-        required: true
         type: string
       - name: zip
         description: Zone Information Postal
         in: formData
-        required: true
         type: integer
       - name: country
         description: Country of owner
         in: formData
-        required: true
         type: string
       - name: state
         description: State of owner
         in: formData
-        required: true
         type: string
       - name: city
         description: City of owner
         in: formData
-        required: true
         type: string
       - name: street
         description: Street of owner
         in: formData
-        required: true
         type: string
       - name: number
         description: Number of address
         in: formData
-        required: true
         type: integer
       - name: district
         description: District of owner
         in: formData
-        required: true
         type: string
       - name: complement
         description: Complement of address
         in: formData
-        required: true
         type: string
     responses:
       200:
         description: address created
+/address/{address_id}:
+  get:
+    tags:
+      - Address
+    description: List a registered address
+    produces:
+      - application/json
+    responses:
+      200:
+        description: List a address
+  put:
+    tags:
+      - Address
+    description: Changes a address
+    produces:
+      - application/json
+    parameters:
+      - name: userId
+        description: Id owner of address
+        in: formData
+        type: string
+      - name: zip
+        description: Zone Information Postal
+        in: formData
+        type: integer
+      - name: country
+        description: Country of owner
+        in: formData
+        type: string
+      - name: state
+        description: State of owner
+        in: formData
+        type: string
+      - name: city
+        description: City of owner
+        in: formData
+        type: string
+      - name: street
+        description: Street of owner
+        in: formData
+        type: string
+      - name: number
+        description: Number of address
+        in: formData
+        type: integer
+      - name: district
+        description: District of owner
+        in: formData
+        type: string
+      - name: complement
+        description: Complement of address
+        in: formData
+        type: string
+    responses:
+      200:
+        description: address changed
+  delete:
+    tags:
+      - Address
+    description: Delete a registered address
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Address deleted

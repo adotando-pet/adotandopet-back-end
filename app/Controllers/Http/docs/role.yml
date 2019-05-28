@@ -2,26 +2,26 @@
   get:
     tags:
       - Role
-    description: List all registered users
+    description: List all registered roles
     produces:
       - application/json
     responses:
       200:
-        description: List of Users
+        description: List of Roles
   post:
     tags:
       - Role
-    description: Create new User
+    description: Create new role
     produces:
       - application/json
     parameters:
-      - name: username
-        description: Username to use for login.
+      - name: name
+        description: Name of role
         in: formData
         required: true
         type: string
-      - name: password
-        description: User's password.
+      - name: description
+        description: description of role
         in: formData
         required: true
         type: string

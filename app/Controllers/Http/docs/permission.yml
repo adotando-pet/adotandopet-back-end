@@ -2,29 +2,29 @@
   get:
     tags:
       - Permission
-    description: List all registered users
+    description: List all registered permissions
     produces:
       - application/json
     responses:
       200:
-        description: List of Users
+        description: List of Permissions
   post:
     tags:
       - Permission
-    description: Create new User
+    description: Create new Permission
     produces:
       - application/json
     parameters:
-      - name: username
-        description: Username to use for login.
+      - name: name
+        description: Name of permission
         in: formData
         required: true
         type: string
-      - name: password
-        description: User's password.
+      - name: description
+        description: description of permission
         in: formData
         required: true
         type: string
     responses:
       200:
-        description: login
+        description: permission created

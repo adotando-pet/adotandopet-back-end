@@ -2,7 +2,7 @@
   get:
     tags:
       - Adoption
-    description: List all registered adoption
+    description: List all registered adoptions
     produces:
       - application/json
     responses:
@@ -18,18 +18,56 @@
       - name: userId
         description: Id of owner of adoption
         in: formData
-        required: true
         type: integer
       - name: advertisement
         description: Id of advertisement of adoption
         in: formData
-        required: true
         type: integer
       - name: status
         description: Status of adoption
         in: formData
-        required: true
         type: enum
     responses:
       200:
         description: adoption created
+/advertisements/adoptions/{adoption_id}:
+  get:
+    tags:
+      - Adoption
+    description: List a registered adoption
+    produces:
+      - application/json
+    responses:
+      200:
+        description: List a adoption
+  put:
+    tags:
+      - Adoption
+    description: Changes a adoption
+    produces:
+      - application/json
+    parameters:
+      - name: userId
+        description: Id of owner of adoption
+        in: formData
+        type: integer
+      - name: advertisement
+        description: Id of advertisement of adoption
+        in: formData
+        type: integer
+      - name: status
+        description: Status of adoption
+        in: formData
+        type: enum
+    responses:
+      200:
+        description: adoption changed
+  delete:
+    tags:
+      - Adoption
+    description: Delete a registered adoption
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Delete a adoption
