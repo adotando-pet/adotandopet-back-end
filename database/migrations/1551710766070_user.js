@@ -20,7 +20,6 @@ class UserSchema extends Schema {
         .unique()
       table.string('password').notNullable()
       table.enu('gender', ['male', 'female', 'others']).notNullable()
-      table.integer('age')
       table.string('token')
       table.timestamp('token_created_at')
       table.timestamps()

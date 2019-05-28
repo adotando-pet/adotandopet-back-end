@@ -10,8 +10,7 @@ class UserUpdate {
       email: 'email',
       password: 'string',
       password_confirmation: 'string|equals:password',
-      gender: 'string|in:male,female',
-      age: 'integer|above:15'
+      gender: 'string|in:male,female'  
     }
   }
 }

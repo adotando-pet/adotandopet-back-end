@@ -6,9 +6,8 @@ class FileUpdate {
   }
   get rules () {
     return {
-      types: ['image'],
-      size: '12mb',
-      extnames: ['png', 'jpg']
+      file: 'file|file_ext:png,jpg|file_size:5mb|file_types:image'
+
     }
   }
 }
