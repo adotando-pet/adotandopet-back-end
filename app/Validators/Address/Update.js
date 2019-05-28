@@ -6,13 +6,14 @@ class AddressUpdate {
   }
   get rules () {
     return {
-      zip: '',
-      country: '',
-      state: '',
-      city: '',
-      street: '',
-      number: '',
-      district: ''
+      zip: 'string|min:8|max:8',
+      country: 'string',
+      state: 'string',
+      city: 'string',
+      street: 'string',
+      number: 'alpha_numeric',
+      district: 'string',
+      complement: 'string'
       // validation rules
     }
   }
