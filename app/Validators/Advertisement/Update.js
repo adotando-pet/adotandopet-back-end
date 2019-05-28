@@ -6,15 +6,16 @@ class AdvertisementUpdate {
   }
   get rules () {
     return {
-      isCastrated: "",
-      isDisabled: "",
-      description: "",
-      isVacined: "",
-      specialCare: "",
-      temperament: "",
-      liveWell: "",
-      sociable: "",
-      pet_id: ""
+      isCastrated: "boolean",
+      isDisabled: "boolean",
+      description: "string|min:30|max:150",
+      isVacined: "boolean",
+      specialCare: "boolean",
+      temperament: "string",
+      liveWell: "array",
+      sociable: "array",
+      specialCareDescription: "required_if:specialCare|string|min:30|max:200"
+
     }
   }
 }
