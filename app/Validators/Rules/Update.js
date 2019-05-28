@@ -6,9 +6,9 @@ class RulesUpdate {
   }
   get rules () {
     return {
-      name: '',
-      slug: '',
-      description: ''
+      name: 'string',
+      slug: 'string',
+      description: 'string'
     }
   }
 }

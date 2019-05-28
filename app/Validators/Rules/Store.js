@@ -6,9 +6,9 @@ class RulesStore {
   }
   get rules () {
     return {
-      name: 'required',
-      slug: 'required',
-      description: 'required'
+      name: 'required|string',
+      slug: 'required|string',
+      description: 'required|string'
     }
   }
 }
