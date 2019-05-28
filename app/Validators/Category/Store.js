@@ -6,8 +6,8 @@ class CategoryStore {
   }
   get rules () {
     return {
-      title: "required",
-      description: "required"
+      title: "required|string|min:10|max:150",
+      description: "required|string|min:20|max:500"
     }
   }
 }

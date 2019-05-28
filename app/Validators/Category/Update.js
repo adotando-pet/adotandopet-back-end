@@ -3,8 +3,8 @@
 class CategoryUpdate {
   get rules () {
     return {
-      title: '',
-      description: ''
+      title: "string|min:10|max:150",
+      description: "string|min:20|max:500"
         }
   }
 }
