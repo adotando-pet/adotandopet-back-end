@@ -6,9 +6,9 @@ class PhoneUpdate {
   }
   get rules () {
     return {
-      number:'',
-      type: '',
-      haveWhatsapp: ''
+      number:'string',
+      type: 'string|in:residential,work,personal',
+      haveWhatsapp: 'boolean'
     }
   }
 }

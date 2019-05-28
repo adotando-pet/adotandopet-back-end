@@ -6,9 +6,9 @@ class PhoneStore {
   }
   get rules () {
     return {
-      number:'required',
-      type: 'required',
-      haveWhatsapp: 'required'
+      number:'required|string',
+      type: 'required|string|in:residential,work,personal',
+      haveWhatsapp: 'required|boolean'
     }
   }
 }
