@@ -6,12 +6,12 @@ class UserStore {
   }
   get rules () {
     return {
-      name: 'required',
+      name: 'required|string',
       email: 'required|email',
-      password: 'required',
-      password_confirmation: 'required',
-      gender: 'required',
-      age: 'required'
+      password: 'required|string',
+      password_confirmation: 'required|string|equals:password',
+      gender: 'required|string|in:male,female',
+      age: 'required|integer|above:15'
     }
   }
 }
