@@ -35,11 +35,6 @@
         in: formData
         required: true
         type: enum
-      - name: age
-        description: Age of user
-        in: formData
-        required: true
-        type: integer
       - name: token
         description: Token of user
         in: formData
@@ -48,3 +43,47 @@
     responses:
       200:
         description: User created
+/users/{user_id}:
+  get:
+    tags:
+      - User
+    description: List a registered user
+    produces:
+      - application/json
+    responses:
+      200:
+        description: List a User
+  put:
+    tags:
+      - User
+    description: Update a User
+    produces:
+      - application/json
+    parameters:
+      - name: file_id
+        description: file_id of user
+        in: formData
+        type: integer
+      - name: email
+        description: Email of user
+        in: formData
+        type: string
+      - name: password
+        description: Password of user
+        in: formData
+        type: string
+      - name: gender
+        description: Gender of user
+        in: formData
+        type: enum
+      - name: token
+        description: Token of user
+        in: formData
+        type: string
+  delete:
+    tags:
+      - User
+    description: Delete a registered user
+    produces:
+      - application/json
+
