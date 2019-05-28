@@ -6,14 +6,14 @@ class PetUpdate {
   }
   get rules () {
     return {
-      name: '',
-      gender: '',
-      age: '',
-      color: '',
-      breed: '',
-      isCastrated: '',
-      size: '',
-      category_id: ''
+      name: 'string',
+      gender: 'string',
+      age: 'integer|above:0',
+      color: 'string',
+      breed: 'string',
+      isCastrated: 'boolean',
+      size: 'string|in:small,medium,large',
+      category_id: 'integer'
     }
   }
 }

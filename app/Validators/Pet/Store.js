@@ -7,14 +7,14 @@ class PetStore {
 
   get rules () {
     return {
-      name: 'required',
-      gender: 'required',
-      age: 'required',
-      color: 'required',
-      breed: 'required',
-      isCastrated: 'required',
-      size: 'required',
-      category_id: 'required'
+      name: 'required|string',
+      gender: 'required|string',
+      age: 'required|integer|above:0',
+      color: 'required|string',
+      breed: 'required|string',
+      isCastrated: 'required|boolean',
+      size: 'required|string|in:small,medium,large',
+      category_id: 'required|integer'
       // validation rules
     }
   }
