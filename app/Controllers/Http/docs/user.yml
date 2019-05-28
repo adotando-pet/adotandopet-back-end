@@ -84,6 +84,5 @@
     tags:
       - User
     description: Delete a registered user
-    produces:
-      - application/json
+
 
