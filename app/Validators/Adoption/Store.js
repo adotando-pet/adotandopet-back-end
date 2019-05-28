@@ -6,9 +6,9 @@ class AdoptionStore {
   }
   get rules () {
     return {
-      user_id: 'required',
-      advertisement_id: 'required',
-      status: 'required'
+      user_id: 'required|integer',
+      advertisement_id: 'required|integer',
+      status: 'required|string'
     }
   }
 }

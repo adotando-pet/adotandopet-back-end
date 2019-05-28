@@ -6,9 +6,9 @@ class AdoptionUpdate {
   }
   get rules () {
     return {
-      user_id: '',
-      advertisement_id: '',
-      status: ''
+      user_id: 'integer',
+      advertisement_id: 'integer',
+      status: 'string'
     }
   }
 }
