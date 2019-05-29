@@ -1,4 +1,4 @@
-/permission:
+/permissions:
   get:
     tags:
       - Permission
@@ -27,4 +27,36 @@
         type: string
     responses:
       200:
-        description: permission created
+        description: login
+/permissions/{permission_id}:
+  get:
+    tags:
+      - Permission
+    description: List a registered permission
+    produces:
+      - application/json
+    responses:
+      200:
+        description: List a Users
+  put:
+    tags:
+      - Permission
+    description: Update new User
+    produces:
+      - application/json
+    parameters:
+      - name: username
+        description: Username to use for login.
+        in: formData
+        type: string
+      - name: password
+        description: User's password.
+        in: formData
+        type: string
+    responses:
+      200:
+        description: login
+  delete:
+    tags:
+      - Permission
+    description: Delete a registered permission

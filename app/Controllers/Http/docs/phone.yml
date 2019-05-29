@@ -1,4 +1,4 @@
-/phone:
+/phones:
   get:
     tags:
       - Phone
@@ -38,3 +38,40 @@
     responses:
       200:
         description: number created
+/phones/{phone_id}:
+  get:
+    tags:
+      - Phone
+    description: List a registered phone
+    produces:
+      - application/json
+  put:
+    tags:
+      - Phone
+    description: Update new Phone
+    produces:
+      - application/json
+    parameters:
+      - name: userId
+        description: Id owner of number
+        in: formData
+        type: integer
+      - name: number
+        description: Number of phone
+        in: formData
+        type: string
+      - name: type
+        description: Type of phone
+        in: formData
+        type: enum
+      - name: haveWhatsapp
+        description: Select option
+        in: formData
+        type: boolean
+    responses:
+      200:
+        description: number created
+  delete:
+    tags:
+      - Phone
+    description: Delete a registered phone

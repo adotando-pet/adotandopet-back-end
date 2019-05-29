@@ -1,4 +1,4 @@
-/role:
+/roles:
   get:
     tags:
       - Role
@@ -28,3 +28,29 @@
     responses:
       200:
         description: login
+/roles/{role_id}:
+  get:
+    tags:
+      - Role
+    description: List a registered user
+    produces:
+      - application/json
+  put:
+    tags:
+      - Role
+    description: Update new User
+    produces:
+      - application/json
+    parameters:
+      - name: username
+        description: Username to use for login.
+        in: formData
+        type: string
+      - name: password
+        description: User's password.
+        in: formData
+        type: string
+   delete:
+    tags:
+      - Role
+    description: Delete a registered user
