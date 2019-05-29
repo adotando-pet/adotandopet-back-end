@@ -15,7 +15,9 @@ class SessionController {
 
       await LoginLog.log(request, user)
 
-      return token
+      user.password = undefined
+
+      return { data: user, token }
     } catch (err) {
       return response
         .send(err.status)
