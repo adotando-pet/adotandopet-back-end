@@ -2,29 +2,88 @@
   get:
     tags:
       - File
-    description: List all registered users
+    description: List all registered files
     produces:
       - application/json
     responses:
       200:
-        description: List of Users
+        description: List of Files
   post:
     tags:
       - File
-    description: Create new User
+    description: Create new file
     produces:
       - application/json
     parameters:
-      - name: username
-        description: Username to use for login.
+      - name: file
+        description: File
         in: formData
         required: true
         type: string
-      - name: password
-        description: User's password.
+      - name: name
+        description: Name
+        in: formData
+        required: true
+        type: string
+      - name: type
+        description: Type
+        in: formData
+        required: true
+        type: string
+      - name: subtype
+        description: Subtype
         in: formData
         required: true
         type: string
     responses:
       200:
-        description: login
+        description: File created
+/file/{file_id}:
+  get:
+    tags:
+      - File
+    description: List a registered file
+    produces:
+      - application/json
+    responses:
+      200:
+        description: List File
+  put:
+    tags:
+      - File
+    description: Changes a file
+    produces:
+      - application/json
+    parameters:
+      - name: file
+        description: File
+        in: formData
+        required: true
+        type: string
+      - name: name
+        description: Name
+        in: formData
+        required: true
+        type: string
+      - name: type
+        description: Type
+        in: formData
+        required: true
+        type: string
+      - name: subtype
+        description: Subtype
+        in: formData
+        required: true
+        type: string
+    responses:
+      200:
+        description: Changed file
+  delete:
+    tags:
+      - File
+    description: Delete a registered file
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Deleted File

@@ -1,30 +1,77 @@
-/phone:
+/phones:
   get:
     tags:
       - Phone
-    description: List all registered users
+    description: List all registered phones
     produces:
       - application/json
     responses:
       200:
-        description: List of Users
+        description: List of phones
   post:
     tags:
       - Phone
-    description: Create new User
+    description: Create new Phone
     produces:
       - application/json
     parameters:
-      - name: username
-        description: Username to use for login.
+      - name: userId
+        description: Id owner of number
+        in: formData
+        required: true
+        type: integer
+      - name: number
+        description: Number of phone
         in: formData
         required: true
         type: string
-      - name: password
-        description: User's password.
+      - name: type
+        description: Type of phone
         in: formData
         required: true
-        type: string
+        type: enum
+      - name: haveWhatsapp
+        description: Select option
+        in: formData
+        required: true
+        type: boolean
     responses:
       200:
-        description: login
+        description: number created
+/phones/{phone_id}:
+  get:
+    tags:
+      - Phone
+    description: List a registered phone
+    produces:
+      - application/json
+  put:
+    tags:
+      - Phone
+    description: Update new Phone
+    produces:
+      - application/json
+    parameters:
+      - name: userId
+        description: Id owner of number
+        in: formData
+        type: integer
+      - name: number
+        description: Number of phone
+        in: formData
+        type: string
+      - name: type
+        description: Type of phone
+        in: formData
+        type: enum
+      - name: haveWhatsapp
+        description: Select option
+        in: formData
+        type: boolean
+    responses:
+      200:
+        description: number created
+  delete:
+    tags:
+      - Phone
+    description: Delete a registered phone
