@@ -33,3 +33,47 @@
     responses:
       200:
         description: category created
+/category/{category_id}:
+  get:
+    tags:
+      - Category
+    description: List a registered categories
+    produces:
+      - application/json
+    responses:
+      200:
+        description: List category
+  put:
+    tags:
+      - Category
+    description: Changes a category
+    produces:
+      - application/json
+    parameters:
+      - name: title
+        description: Title of category
+        in: formData
+        required: true
+        type: string
+      - name: slug
+        description: Slug of category
+        in: formData
+        required: true
+        type: string
+      - name: description
+        description: Description of category
+        in: formData
+        required: true
+        type: string
+    responses:
+      200:
+        description: Changed category
+  delete:
+    tags:
+      - Category
+    description: Delete a registered categories
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Deleted category

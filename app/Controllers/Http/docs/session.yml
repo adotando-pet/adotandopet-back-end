@@ -1,22 +1,13 @@
 /session:
-  get:
-    tags:
-      - Session
-    description: List all registered users
-    produces:
-      - application/json
-    responses:
-      200:
-        description: List of Users
   post:
     tags:
       - Session
-    description: Create new User
+    description: Create new session
     produces:
       - application/json
     parameters:
-      - name: username
-        description: Username to use for login.
+      - name: email
+        description: email to login.
         in: formData
         required: true
         type: string
@@ -27,4 +18,4 @@
         type: string
     responses:
       200:
-        description: login created
+        description: login

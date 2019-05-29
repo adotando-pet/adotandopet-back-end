@@ -50,7 +50,7 @@
         description: User's password.
         in: formData
         type: string
-   delete:
+  delete:
     tags:
       - Role
     description: Delete a registered user

@@ -38,3 +38,52 @@
     responses:
       200:
         description: File created
+/file/{file_id}:
+  get:
+    tags:
+      - File
+    description: List a registered file
+    produces:
+      - application/json
+    responses:
+      200:
+        description: List File
+  put:
+    tags:
+      - File
+    description: Changes a file
+    produces:
+      - application/json
+    parameters:
+      - name: file
+        description: File
+        in: formData
+        required: true
+        type: string
+      - name: name
+        description: Name
+        in: formData
+        required: true
+        type: string
+      - name: type
+        description: Type
+        in: formData
+        required: true
+        type: string
+      - name: subtype
+        description: Subtype
+        in: formData
+        required: true
+        type: string
+    responses:
+      200:
+        description: Changed file
+  delete:
+    tags:
+      - File
+    description: Delete a registered file
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Deleted File

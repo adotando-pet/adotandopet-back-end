@@ -55,10 +55,19 @@
       200:
         description: advertisements created
 /advertisement/{advertisement_id}:
+  get:
+    tags:
+      - Advertisement
+    description: List a registered advertisement
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Show advertisement
   put:
     tags:
       - Advertisement
-    description: Create new advertisement
+    description: Changes a advertisement
     produces:
       - application/json
     parameters:
@@ -100,4 +109,13 @@
         type: integer
     responses:
       200:
-        description: advertisements created
+        description: changed advertisements
+  delete:
+    tags:
+      - Advertisement
+    description: Delete a registered advertisement
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Deleted advertisement
