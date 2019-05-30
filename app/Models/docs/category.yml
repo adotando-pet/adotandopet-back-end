@@ -4,7 +4,5 @@ definitions:
     properties:
       title:
         type: string
-      slug:
-        type: string
       description:
         type: string
