@@ -10,8 +10,7 @@ class UserStore {
       email: 'required|email',
       password: 'required|string',
       password_confirmation: 'required|string|equals:password',
-      gender: 'required|string|in:male,female',
-      age: 'required|integer|above:15'
+      gender: 'required|string|in:male,female'
     }
   }
 }

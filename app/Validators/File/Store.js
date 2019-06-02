@@ -6,13 +6,9 @@ class FileStore {
   }
   get rules () {
     return {
-      
-        types: ['image'],
-        size: '12mb',
-        extnames: ['png', 'jpg']
-      }
+      file: 'required|file|file_ext:png,jpg|file_size:5mb|file_types:image'
     }
-  }
+  }  
 }
 
 module.exports = FileStore

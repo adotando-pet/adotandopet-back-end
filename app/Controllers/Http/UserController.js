@@ -39,7 +39,6 @@ class UserController {
       'email',
       'password',
       'gender',
-      'age',
       'file_id',
       'permissions',
       'roles',
@@ -79,7 +78,6 @@ class UserController {
       'email',
       'password',
       'gender',
-      'age',
       'file_id',
       'permissions',
       'roles'
