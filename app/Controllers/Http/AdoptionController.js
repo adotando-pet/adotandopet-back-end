@@ -1,9 +1,18 @@
 'use strict'
 
 const Adoption = use('App/Models/Adoption')
+const User = use('App/Models/User')
 
 class AdoptionController {
-  async index () {
+  async index ({ auth }) {
+    const user = auth.user
+
+    console.log(user)
+
+    const data = await User.findByOrFail(user.id)
+
+    console.log(data.toJson())
+
     const adoption = await Adoption.query()
       .with('user')
       .with('advertisement')

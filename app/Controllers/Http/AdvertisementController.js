@@ -4,14 +4,14 @@ const Advertisement = use('App/Models/Advertisement')
 
 class AdvertisementController {
   async index () {
-    const advertisement = await Advertisement.query()
-      .with('pet')
+    const advertisements = await Advertisement.query()
+      .with('pet.user.address')
       .fetch()
 
-    return advertisement
+    return advertisements
   }
 
-  async store ({ request, auth }) {
+  async store ({ request }) {
     const data = request.only([
       'pet_id',
       'isDisabled',

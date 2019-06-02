@@ -1,12 +1,13 @@
 'use strict'
 
 class AddressUpdate {
-  get validateAll(){
+  get validateAll () {
     return true
   }
+
   get rules () {
     return {
-      zip: 'string|min:8|max:8',
+      zip: 'integer|min:8|max:8',
       country: 'string',
       state: 'string',
       city: 'string',

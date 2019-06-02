@@ -1,13 +1,14 @@
 'use strict'
 
 class AddressStore {
-  get validateAll(){
+  get validateAll () {
     return true
   }
+
   get rules () {
     return {
-      zip: 'required|string|min:8|max:8',
-      country: 'required|string|',
+      zip: 'required|integer|min:8|max:8',
+      country: 'required|string',
       state: 'required|string',
       city: 'required|string',
       street: 'required|string',

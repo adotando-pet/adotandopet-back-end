@@ -84,10 +84,10 @@ Route.group(() => {
   )
   Route.delete('/categories/:id', 'CategoryController.destory')
 
-  Route.get('/user', 'UserController.index')
-  Route.get('/user/:id', 'UserController.show')
-  Route.put('/user/:id', 'UserController.update').validator('User/Update')
-  Route.delete('/user/:id', 'UserController.destroy')
+  Route.get('/users', 'UserController.index')
+  Route.get('/users/:id', 'UserController.show')
+  Route.put('/users/:id', 'UserController.update').validator('User/Update')
+  Route.delete('/users/:id', 'UserController.destroy')
 
   Route.get('/roles', 'RoleController.index')
   Route.post('/roles', 'RoleController.store').validator('Role/Store')
