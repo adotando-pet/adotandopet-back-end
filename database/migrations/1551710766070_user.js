@@ -22,6 +22,7 @@ class UserSchema extends Schema {
       table.enu('gender', ['male', 'female', 'others']).notNullable()
       table.string('token')
       table.timestamp('token_created_at')
+      table.boolean('have_notifications')
       table.timestamps()
     })
   }
