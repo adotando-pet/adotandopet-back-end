@@ -4,6 +4,10 @@
 const Model = use('Model')
 
 class Pet extends Model {
+  advertisement () {
+    return this.hasOne('App/Models/Advertisement')
+  }
+
   user () {
     return this.belongsTo('App/Models/User')
   }
@@ -13,7 +17,9 @@ class Pet extends Model {
   }
 
   files () {
-    return this.belongsToMany('App/Models/File').pivotTable('pet_file').withTimestamps()
+    return this.belongsToMany('App/Models/File')
+      .pivotTable('pet_file')
+      .withTimestamps()
   }
 }
 

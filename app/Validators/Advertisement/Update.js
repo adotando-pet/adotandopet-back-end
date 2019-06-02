@@ -1,21 +1,21 @@
 'use strict'
 
 class AdvertisementUpdate {
-  get validateAll(){
+  get validateAll () {
     return true
   }
+
   get rules () {
     return {
-      isCastrated: "boolean",
-      isDisabled: "boolean",
-      description: "string|min:30|max:150",
-      isVacined: "boolean",
-      specialCare: "boolean",
-      temperament: "string",
-      liveWell: "array",
-      sociable: "array",
-      specialCareDescription: "required_if:specialCare|string|min:30|max:200"
-
+      pet_id: 'integer',
+      isDisabled: 'boolean',
+      isVacined: 'boolean',
+      specialCare: 'boolean',
+      specialCareDescription: 'string|min:30|max:200',
+      temperament: 'string',
+      liveWell: 'array',
+      sociable: 'array',
+      description: 'string|min:30|max:150'
     }
   }
 }
