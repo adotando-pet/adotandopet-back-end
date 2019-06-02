@@ -1,0 +1,12 @@
+/:
+  get:
+    tags:
+      - Hello World
+    description: Route to test API
+    produces:
+      - application/json
+    responses:
+      200:
+        description: Return Greeting Message
+        example:
+          greeting: Welcome to Adotando.Pet!
