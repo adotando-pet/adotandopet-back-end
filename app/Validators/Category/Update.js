@@ -1,11 +1,15 @@
 'use strict'
 
 class CategoryUpdate {
+  get validateAll () {
+    return true
+  }
+
   get rules () {
     return {
-      title: "string|min:10|max:150",
-      description: "string|min:20|max:500"
-        }
+      title: 'string|min:4|max:150',
+      description: 'string|min:10|max:500'
+    }
   }
 }
 
