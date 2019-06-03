@@ -30,17 +30,13 @@ Route.put('forgot-password', 'ForgotPasswordController.update').validator(
  * Private Routes (Authenticated)
  */
 Route.group(() => {
-  Route.get('advertisements/adoptions', 'AdoptionController.index')
-  Route.post(
-    'advertisements/:advertisement_id/adoptions',
-    'AdoptionController.store'
-  ).validator('Adoption/Store')
-  Route.get('advertisements/adoptions/:id', 'AdoptionController.show')
-  Route.put(
-    'advertisements/adoptions/:id',
-    'AdoptionController.update'
-  ).validator('Adoption/Update')
-  Route.delete('advertisements/adoptions/:id', 'AdoptionController.destroy')
+  Route.get('adoptions', 'AdoptionController.index')
+  Route.post('adoptions/:advertisement_id', 'AdoptionController.store')
+  Route.get('adoptions/:id', 'AdoptionController.show')
+  Route.put('adoptions/:id', 'AdoptionController.update').validator(
+    'Adoption/Update'
+  )
+  Route.delete('adoptions/:id', 'AdoptionController.destroy')
 
   Route.post('advertisements', 'AdvertisementController.store').validator(
     'Advertisement/Store'
