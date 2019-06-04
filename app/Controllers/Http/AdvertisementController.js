@@ -26,7 +26,7 @@ class AdvertisementController {
 
     const advertisement = await Advertisement.create(data)
 
-    await advertisement.load('pet')
+    await advertisement.load('pet.user.address')
 
     return advertisement
   }
@@ -58,7 +58,7 @@ class AdvertisementController {
 
     await advertisement.save()
 
-    await advertisement.load('pet')
+    await advertisement.load('pet.user.address')
 
     return advertisement
   }

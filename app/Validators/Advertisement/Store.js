@@ -11,7 +11,7 @@ class AdvertisementSotre {
       isDisabled: 'required|boolean',
       isVacined: 'required|boolean',
       specialCare: 'required|boolean',
-      specialCareDescription: 'required_if:specialCare|string|min:8|max:200',
+      specialCareDescription: 'required_when:specialCare,true|string|min:8|max:200',
       temperament: 'required|string',
       liveWell: 'required|string',
       sociable: 'required|string',
