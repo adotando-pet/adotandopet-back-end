@@ -1,21 +1,14 @@
 'use strict'
 
 const Adoption = use('App/Models/Adoption')
-const User = use('App/Models/User')
 
 class AdoptionController {
   async index ({ auth }) {
     const user = auth.user
 
-    console.log(user)
-
-    const data = await User.findByOrFail(user.id)
-
-    console.log(data.toJson())
-
     const adoption = await Adoption.query()
-      .with('user')
-      .with('advertisement')
+      .where('user_id', user.id)
+      .with('advertisement.pet')
       .fetch()
 
     return adoption
@@ -31,7 +24,7 @@ class AdoptionController {
       status: 'pending'
     })
 
-    await adoption.loadMany(['user', 'advertisement'])
+    await adoption.load('advertisement.pet')
 
     return adoption
   }

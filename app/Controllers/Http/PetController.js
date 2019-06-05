@@ -3,8 +3,9 @@
 const Pet = use('App/Models/Pet')
 
 class PetController {
-  async index () {
+  async index ({ auth }) {
     const pets = await Pet.query()
+      .where('user_id', auth.user.id)
       .with('user')
       .with('category')
       .with('files')
@@ -22,8 +23,6 @@ class PetController {
     if (files && files.length > 0) {
       await pet.files().attach(files)
     }
-
-    await pet.loadMany(['user', 'files', 'category'])
 
     return pet
   }
