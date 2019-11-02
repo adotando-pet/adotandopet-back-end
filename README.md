@@ -124,7 +124,7 @@ Com o Docker instalado e rodando, agora vamos iniciar as instâncias dos Bancos 
 
 ##### Iniciando o Postgres
 ```sh
-docker run --name adotandopet_pg -e POSTGRES_DBNAME=adotandopet -p 5432:5432 -d -t kartoza/postgis
+docker run --name adotandopet_pg -e POSTGRES_USER=root -e POSTGRES_PASSWORD=root -e POSTGRES_DBNAME=adotandopet_pg -p 5432:5432 -d -t kartoza/postgis
 ```
 
 ---
